@@ -1,0 +1,28 @@
+{
+  "name": "session-notes",
+  "version": "0.1.0",
+  "description": "Record the current coding session as one dev note, through the notes MCP client shipped with the plugin.",
+  "author": {
+    "name": "Julien La Vinh"
+  },
+  "mcpServers": "./mcp.json",
+  "variables": {
+    "type": "object",
+    "properties": {
+      "NOTES_URL": {
+        "type": "string",
+        "title": "Notes MCP URL",
+        "description": "Full URL of the notes server, for example https://example.com/api/notes/mcp"
+      },
+      "NOTES_TOKEN": {
+        "type": "string",
+        "title": "Notes API token",
+        "description": "Bearer token (omk_...) with full access, created in the site back-office"
+      }
+    },
+    "required": [
+      "NOTES_URL",
+      "NOTES_TOKEN"
+    ]
+  }
+}
