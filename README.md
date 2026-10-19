@@ -10,10 +10,10 @@ Every plugin ships as a single source shared by both tools — see
 
 ## Plugins
 
-| Plugin                                               | Purpose                                                                                                 |
-| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| [session-notes](plugins/session-notes)               | Record the current coding session as one dev note, through the notes MCP client shipped with the plugin |
-| [nextjs-app-structure](plugins/nextjs-app-structure) | House layout for a Next.js App Router app: routes, components, config, and a single env module          |
+| Plugin                                               | Purpose                                                                                        |
+| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| [nextjs-app-structure](plugins/nextjs-app-structure) | House layout for a Next.js App Router app: routes, components, config, and a single env module |
+| [tilap](plugins/tilap)                               | Personal daily skills: explore options for one problem, and record the session as one dev note |
 
 ## Install
 
@@ -23,7 +23,7 @@ Register this repository as a marketplace, then enable the plugins you want:
 
 ```bash
 claude plugin marketplace add tilap/pinkpuma-tilap
-claude plugin install session-notes@pinkpuma-tilap
+claude plugin install tilap@pinkpuma-tilap
 ```
 
 To enable a plugin for every project on one machine, run the commands above once; they
@@ -33,7 +33,7 @@ commit the `.claude/settings.json` it writes:
 
 ```bash
 claude plugin marketplace add tilap/pinkpuma-tilap --scope project
-claude plugin install session-notes@pinkpuma-tilap --scope project
+claude plugin install tilap@pinkpuma-tilap --scope project
 ```
 
 This repository is private: each machine (and each collaborator) needs `git` access to
@@ -49,8 +49,8 @@ plugin from Cursor's plugin manager by pointing it at `plugins/<name>/`.
 ### Pinkpuma-deck
 
 ```sh
-npx @pinkpuma/deck add tilap/pinkpuma-tilap@session-notes --ref session-notes-v0.1.0
 npx @pinkpuma/deck add tilap/pinkpuma-tilap@nextjs-app-structure --ref nextjs-app-structure-v0.1.0
+npx @pinkpuma/deck add tilap/pinkpuma-tilap@tilap --ref tilap-v0.1.0
 ```
 
 ## Repository layout and contributing

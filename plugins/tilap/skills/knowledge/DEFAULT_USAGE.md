@@ -1,0 +1,1 @@
+- **Knowledge base.** If the `knowledge` skill is available, use it only when the user invokes `/tilap:knowledge` to add or update one proven dev practice in their knowledge base through the notes MCP. It does not create a file.

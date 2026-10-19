@@ -1,0 +1,1 @@
+- **Knowledge base.** If the `knowledge-search` skill is available, use it before designing or implementing a technical topic (env vars, auth, data fetching, testing, deployment, project structure) to read the owner's proven practices through the notes MCP and apply the matching ones.

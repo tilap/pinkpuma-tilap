@@ -6,14 +6,14 @@
   },
   "plugins": [
     {
-      "name": "session-notes",
-      "source": "./plugins/session-notes",
-      "description": "Record the current coding session as one dev note, through the notes MCP client shipped with the plugin."
-    },
-    {
       "name": "nextjs-app-structure",
       "source": "./plugins/nextjs-app-structure",
       "description": "House layout for a Next.js App Router app: routes, components, config, and a single env module."
+    },
+    {
+      "name": "tilap",
+      "source": "./plugins/tilap",
+      "description": "Personal daily skills: explore options for one problem, record the session as one dev note, and add entries to the knowledge base through the bundled notes MCP client."
     }
   ]
 }
