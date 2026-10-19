@@ -4,6 +4,22 @@ All notable changes to this plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.3.0] - 2026-10-19
+
+### Added
+
+- `handoff` and `resume` skills, moved in from the `handoff` plugin of pinkpuma-toolbelt.
+  `resume` now carries `disable-model-invocation`, like every skill here except
+  `knowledge-search`.
+- `grill`, `to-spec` and `to-tickets` skills and the `/tilap:plan` command, moved in from the
+  `feature-planning` plugin of pinkpuma-toolbelt. Their shared rules, review gates and
+  tracker contracts live in `feature-planning/`. None of them auto-invokes.
+
+### Changed
+
+- Commands are renamed: `/handoff:handoff` is `/tilap:handoff`, `/feature-planning:grill` is
+  `/tilap:grill`, and so on for `resume`, `to-spec`, `to-tickets` and `plan`.
+
 ## [0.2.0] - 2026-10-19
 
 ### Added
