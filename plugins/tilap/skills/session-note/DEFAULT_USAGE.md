@@ -1,0 +1,1 @@
+- **Session notes.** If the `session-note` skill is available, use it only when the user invokes `/tilap:session-note`. It writes one note through the plugin's notes MCP and does not create a file.

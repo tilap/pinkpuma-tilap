@@ -1,5 +1,9 @@
 # nextjs-app-structure
 
+```
+/plugin install nextjs-app-structure --marketplace tilap/pinkpuma-tilap
+```
+
 File layout for a Next.js App Router app. The rules are in
 [`CONVENTIONS.md`](CONVENTIONS.md). The Pages Router and any other stack are out of
 scope.

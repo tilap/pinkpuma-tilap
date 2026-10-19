@@ -1,7 +1,7 @@
 {
-  "name": "session-notes",
-  "version": "0.1.0",
-  "description": "Record the current coding session as one dev note, through the notes MCP client shipped with the plugin.",
+  "name": "tilap",
+  "version": "0.2.0",
+  "description": "Personal daily skills: explore options for one problem, record the session as one dev note, and add entries to the knowledge base through the bundled notes MCP client.",
   "author": {
     "name": "Julien La Vinh"
   },
@@ -9,7 +9,7 @@
     "notes_url": {
       "type": "string",
       "title": "Notes MCP URL",
-      "description": "Full URL of the notes server, for example https://example.com/api/notes/mcp",
+      "description": "Full URL of the notes server, for example https://example.com/api/mcp",
       "required": true
     },
     "notes_token": {

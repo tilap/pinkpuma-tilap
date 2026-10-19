@@ -60,7 +60,7 @@ the skills you are editing.
 ```bash
 cd /path/to/this-repo
 claude plugin marketplace add ./
-claude plugin install session-notes@pinkpuma-tilap
+claude plugin install tilap@pinkpuma-tilap
 # plus any other plugins you need while developing
 ```
 

@@ -7,6 +7,7 @@ description: >-
   src/components/, configuration in src/config/, and environment variables only in
   src/env.ts. Use when adding, moving, or reviewing a file in a Next.js app. Do not
   use it for the Pages Router or any other stack.
+disable-model-invocation: false
 metadata:
   plugin: nextjs-app-structure
 ---
