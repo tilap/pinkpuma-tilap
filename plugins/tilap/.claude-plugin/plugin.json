@@ -1,6 +1,6 @@
 {
   "name": "tilap",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Personal daily skills: explore options for one problem, record the session as one dev note, and add entries to the knowledge base through the bundled notes MCP client.",
   "author": {
     "name": "Julien La Vinh"
