@@ -12,7 +12,6 @@ Every plugin ships as a single source shared by both tools — see
 
 | Plugin                                               | Purpose                                                                                        |
 | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| [nextjs-app-structure](plugins/nextjs-app-structure) | House layout for a Next.js App Router app: routes, components, config, and a single env module |
 | [tilap](plugins/tilap)                               | Personal daily skills: explore options for one problem, and record the session as one dev note |
 
 ## Install
@@ -49,7 +48,6 @@ plugin from Cursor's plugin manager by pointing it at `plugins/<name>/`.
 ### Pinkpuma-deck
 
 ```sh
-npx @pinkpuma/deck add tilap/pinkpuma-tilap@nextjs-app-structure --ref nextjs-app-structure-v0.1.0
 npx @pinkpuma/deck add tilap/pinkpuma-tilap@tilap --ref tilap-v0.1.0
 ```
 
