@@ -35,7 +35,7 @@ Run after the tickets are published and before any ready label is added.
 3. **No orphan criterion.** Each "Done when" line traces to a rule, a scenario, a
    documentation update, or the project's own checks. *On fail*: the ticket invents
    scope — remove the line or send the user back to `grill`.
-4. **Every documentation update lands once.** Each `DU*` is in exactly one ticket, in full, and never in the e2e Ticket (it may write only the e2e suite folder).
+4. **Every documentation update lands once.** Each `DU*` is in exactly one ticket, in full.
 5. **Cold read.** Reading only the body of ticket N, can you say what to change, how to
    know it is done and what not to touch? *Evidence*: the three answers, written down.
    *On fail*: rewrite the body.
@@ -75,7 +75,11 @@ Run after gate A, before any ready label is added.
    *Evidence*: the scenarios in the spec side by side with the e2e Ticket body, or the
    recorded skip. *On fail*: add the ticket or get the opt-out decision; `n/a` only when the
    project does not use the check.
-2. **Mason contract.** The contract's checklist passes (labels, priorities, sub-issues,
+2. **The e2e Ticket carries no documentation update.** Its agent may write only the e2e
+   suite folder, so a `DU*` there could never be satisfied. *Evidence*: the e2e Ticket body
+   has no Documentation update section. *On fail*: remove it; the scenarios are documented
+   by the suite itself. `n/a` when there is no e2e Ticket.
+3. **Mason contract.** The contract's checklist passes (labels, priorities, sub-issues,
    blockers). *Evidence*: the table of `to-mason` Step 2.
 
 ## Gate B — Ticket (each pull request)

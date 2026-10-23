@@ -54,7 +54,7 @@ intact; do not soften a precise rule into prose. Carry the end-to-end scenarios
 settled in `grill` (`E1`, …) verbatim in their own section, apart from the acceptance
 scenarios, or write the skip decision; if `grill` settled neither, ask the user to go back to
 it rather than decide. Include documentation-update drafts in
-full, none of them about the end-to-end scenarios: those live in the e2e suite folder only. Use **no file paths** (see Conventions). For a purely technical change (refactor,
+full, none of them describing the end-to-end scenarios: the suite is their documentation. Use **no file paths** (see Conventions). For a purely technical change (refactor,
 module boundary), replace User stories with "Technical change — no user-facing stories" and
 put the weight on Implementation and Testing decisions.
 
@@ -111,7 +111,7 @@ implementation belong in a decision record or the project's docs, not in an edit
 
 - **E1 — <name>**: <end-to-end user journey, observable from outside, in plain language>
 
-<Or: "Skipped — <reason>", or "Not applicable — the Project does not use the e2e check".
+<Or: "Skipped — <reason>", or "Not applicable — the Project has no end-to-end acceptance suite".
 At most 5, as settled in `grill`; omit the section only for the last case.>
 
 ## Implementation decisions
