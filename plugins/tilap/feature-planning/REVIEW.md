@@ -33,9 +33,9 @@ Run after the tickets are published and before any ready label is added.
    *On fail*: add the missing outcome to a ticket, or ask `grill` whether the rule is out.
 2. **Every scenario is covered.** Same, for each acceptance scenario `S*`.
 3. **No orphan criterion.** Each "Done when" line traces to a rule, a scenario, a
-   documentation update, or the project's own checks. *On fail*: the ticket invents
+   documentation update, an end-to-end scenario (in the e2e Ticket), or the project's own checks. *On fail*: the ticket invents
    scope — remove the line or send the user back to `grill`.
-4. **Every documentation update lands once.** Each `DU*` is in exactly one ticket, in full.
+4. **Every documentation update lands once.** Each `DU*` is in exactly one ticket, in full, and never in the e2e Ticket (it may write only the e2e suite folder).
 5. **Cold read.** Reading only the body of ticket N, can you say what to change, how to
    know it is done and what not to touch? *Evidence*: the three answers, written down.
    *On fail*: rewrite the body.
@@ -54,7 +54,7 @@ Run after the tickets are published and before any ready label is added.
 12. **Tests are specified first.** Each ticket has a Tests section — cases in Given / When /
     Then covering its rules and scenarios, the interface under test named, the test file and
     framework given — or an explicit `Tests: none` with its reason and the existing check
-    that guards it. *Evidence*: per ticket, the cases or the reason. *On fail*: write the
+    that guards it. The e2e Ticket is exempt: its scenarios are its tests. *Evidence*: per ticket, the cases or the reason. *On fail*: write the
     cases, or state why there are none; a ticket cannot go out without one or the other.
 13. **Every numeric Then is produced by its own Given.** For each case whose Then holds a
     number (a page size, a cap, a count after a filter), the Given seeds the data that
@@ -62,6 +62,12 @@ Run after the tickets are published and before any ready label is added.
     data. *Evidence*: per case, the arithmetic from Given to Then in one line. *On fail*:
     rewrite the Given or split the case; a Then the tests agent must complete by guessing
     is how it writes a test no implementation can pass.
+14. **End-to-end check is present or waived.** On a project that uses the e2e check, the
+    feature has an e2e Ticket, blocked by every other ticket, whose body holds the agreed
+    scenarios verbatim with their ids, or an explicit opt-out decided with the user.
+    *Evidence*: the scenarios in the spec side by side with the e2e Ticket body, or the
+    recorded skip. *On fail*: add the ticket or get the opt-out decision; `n/a` only when the
+    project does not use the check.
 
 ## Gate B — Ticket (each pull request)
 

@@ -34,6 +34,8 @@ Feature  (issue, label feature-ready)
 | `task-ready`       | each Ticket      | The ticket's specification is final                                       | the creator, on all tickets together, after the list was validated |
 | `merge-when-ready` | Feature          | The final pull request may be merged without a human                      | creator or human                                                   |
 | `to-resume`        | Feature / Ticket | Resume after an escalation                                                | a human                                                            |
+| `e2e`              | Ticket           | The ticket that writes the feature's end-to-end suite (the e2e Ticket)    | the creator                                                        |
+| `skip-test-e2e`    | Feature          | Explicit opt-out of the end-to-end check                                  | the creator or a human                                             |
 | `project:<name>`   | Feature          | The project. A ticket takes its feature's. Missing: a configured default  | the creator                                                        |
 | `priority:<n>`     | Feature / Ticket | `0`–`100`, or `low` 25, `normal` 50, `high` 75, `urgent` 100. Missing: 50 | the creator                                                        |
 | `mason:*`          | any              | State labels the system writes. **Never set or remove them**              | the system                                                         |
@@ -56,7 +58,8 @@ may be missing on a fresh repository.
 - **Body**: read word for word, **no structure extracted** (no headings, checklist or
   criteria). It is the statement of the need and the final pull request's text, written for
   the reviewer who will merge. It is *not* what the agent codes from — tickets are.
-- **Refused as `invalid`** (one comment, nothing starts): no title and no body; more than
+- **Refused as `invalid`** (one comment, nothing starts): no title and no body; on a
+  project that declares the e2e check, neither an `e2e` ticket nor `skip-test-e2e`; more than
   one `project:` label, or none and no default; more than one `priority:` or a value off
   the scale; it is a pull request.
 - **Order**: highest priority, then oldest, among unblocked features.
@@ -88,6 +91,19 @@ There is no acceptance-criteria field: say it in the body. Ticked boxes are fine
 - **Priority**: `priority:` label, default 50; it only orders ready, unblocked tickets.
 - **A ticket the system cannot read is dropped silently** and the feature proceeds without
   it: two `priority:` labels, no title and no body, a bad value. Validate before labelling.
+
+### The e2e Ticket
+
+On a project that declares the end-to-end check, a feature has either one sub-issue labelled
+`e2e` or the label `skip-test-e2e` (then the e2e Ticket is cancelled and the check not run).
+Backend-only or trivial features are expected to opt out. The e2e Ticket:
+
+- is **blocked by every other ticket** of the feature, and is created last;
+- has a body that holds the agreed scenarios `E1`, … **verbatim** (at most 5, one suite per
+  feature, run once on the assembled feature, never per ticket);
+- tells its agent it may write only the suite folder and the manifest `e2e/scenarios.json`
+  (the scenario ids), each test carrying its id in its name; it must not touch application
+  code, nor run or fix the app. A red suite is repaired later at feature level.
 
 ## When work starts
 
@@ -148,6 +164,7 @@ Feature:
 - [ ] a real title; a body that says what and why, for a reviewer
 - [ ] `project:<name>` (or the default applies); at most one `priority:`
 - [ ] *Blocked by* set if another feature must land first
+- [ ] on a project with the e2e check: an e2e Ticket, or `skip-test-e2e` agreed with the user
 - [ ] `feature-ready` added **last**
 
 Each ticket:
@@ -157,4 +174,5 @@ Each ticket:
 - [ ] leaves the checks green when merged alone
 - [ ] *Blocked by* set to the tickets it needs, no cycle
 - [ ] at most one `priority:` label
+- [ ] the e2e Ticket: label `e2e`, blocked by all the other tickets, scenarios verbatim
 - [ ] `task-ready` added together with its siblings
