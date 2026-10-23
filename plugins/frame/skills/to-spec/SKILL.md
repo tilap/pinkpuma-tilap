@@ -7,7 +7,7 @@ description: >-
   single ticket and must later be split into tickets.
 disable-model-invocation: true
 metadata:
-  plugin: tilap
+  plugin: frame
 ---
 
 # To spec
@@ -74,7 +74,7 @@ the spec is drafted without a contract.
    GitHub; the connector for Linear or Jira; otherwise hand the text over for pasting).
    **Add no label that tells a downstream system to start** (GitHub with mason:
    `feature-ready`): that is the last step of `to-mason`, once the tickets exist.
-5. Report the feature's link and tell the person to type `/tilap:to-tickets` **in
+5. Report the feature's link and tell the person to type `/frame:to-tickets` **in
    this same conversation**, so the spec never has to be fetched back (Handing over to the
    next step, in the conventions). You cannot start it yourself.
 

@@ -61,7 +61,8 @@ the skills you are editing.
 cd /path/to/this-repo
 claude plugin marketplace add ./
 claude plugin install tilap@pinkpuma-tilap
-# plus any other plugins you need while developing
+claude plugin install frame@pinkpuma-tilap
+claude plugin install checkpoint@pinkpuma-tilap
 ```
 
 A marketplace registered as `./` reads files from the clone. After editing a `SKILL.md`,

@@ -7,7 +7,7 @@ description: >-
   to-tickets, when the project is built by mason on GitHub.
 disable-model-invocation: true
 metadata:
-  plugin: tilap
+  plugin: frame
 ---
 
 # To mason

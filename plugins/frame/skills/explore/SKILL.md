@@ -2,11 +2,11 @@
 name: explore
 description: >-
   Explore options for one precise problem, including at least one option that
-  leaves a current repo choice. Use only when the user invokes /tilap:explore or
+  leaves a current repo choice. Use only when the user invokes /frame:explore or
   /explore.
 disable-model-invocation: true
 metadata:
-  plugin: tilap
+  plugin: frame
 ---
 
 # Explore

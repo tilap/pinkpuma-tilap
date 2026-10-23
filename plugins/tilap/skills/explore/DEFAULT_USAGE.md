@@ -1,1 +1,0 @@
-- **Idea exploration.** If the `explore` skill is available, use it only when the user invokes `/tilap:explore`. It reads the repo, proposes tradeoffs, and does not edit files.

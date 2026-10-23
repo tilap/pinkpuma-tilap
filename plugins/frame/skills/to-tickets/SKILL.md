@@ -7,7 +7,7 @@ description: >-
   over to to-mason for the labels and the release to the automated development system.
 disable-model-invocation: true
 metadata:
-  plugin: tilap
+  plugin: frame
 ---
 
 # To tickets
@@ -181,7 +181,7 @@ This skill ends here: the tickets stand on the tracker with their blocking links
 tells any system to start. Report the frontier, then say which command to type next, in this
 same conversation (Handing over to the next step, in the conventions):
 
-- the project is built by mason → `/tilap:to-mason`, which applies the priorities and labels,
+- the project is built by mason → `/frame:to-mason`, which applies the priorities and labels,
   adds the e2e Ticket and releases the work;
 - any other system → no skill exists for it: say so, and leave the tickets as they are.
 

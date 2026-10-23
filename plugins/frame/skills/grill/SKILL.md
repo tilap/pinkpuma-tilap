@@ -7,7 +7,7 @@ description: >-
   that is not yet precise, before any spec or ticket is written.
 disable-model-invocation: true
 metadata:
-  plugin: tilap
+  plugin: frame
 ---
 
 # Grill
@@ -105,8 +105,8 @@ assumed, open questions empty or explicitly deferred by the user. Then:
    understanding.
 2. Size the need and end with exactly one next step, as the conventions say (Handing over
    to the next step): tell the person which command to type, in this same conversation:
-   - fits a single ticket → `/tilap:to-tickets`;
-   - larger → `/tilap:to-spec`.
+   - fits a single ticket → `/frame:to-tickets`;
+   - larger → `/frame:to-spec`.
 
 Do not start the next step yourself, and do not ask whether to go on: you cannot start it, so
 the person has to type the command.

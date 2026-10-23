@@ -9,12 +9,12 @@ instead of repeating it.
 grill  →  to-spec  →  to-tickets  →  to-mason  →  (development)
 ```
 
-| Skill        | Decides? | Output                                                         | Lives in               |
-| ------------ | -------- | -------------------------------------------------------------- | ---------------------- |
-| `grill`      | Yes      | A shared, complete understanding of the need                   | The conversation       |
-| `to-spec`    | No       | A rich feature spec, published                                 | The feature board      |
-| `to-tickets` | No       | Self-contained, dependency-linked tickets, published           | The ticket tracker     |
-| `to-mason`   | No       | Labels, the e2e Ticket, then the release to mason (optional)   | The ticket tracker     |
+| Skill        | Decides? | Output                                                       | Lives in           |
+| ------------ | -------- | ------------------------------------------------------------ | ------------------ |
+| `grill`      | Yes      | A shared, complete understanding of the need                 | The conversation   |
+| `to-spec`    | No       | A rich feature spec, published                               | The feature board  |
+| `to-tickets` | No       | Self-contained, dependency-linked tickets, published         | The ticket tracker |
+| `to-mason`   | No       | Labels, the e2e Ticket, then the release to mason (optional) | The ticket tracker |
 
 Only `grill` makes decisions. `to-spec` and `to-tickets` record and slice what was already
 decided: if they need a decision nobody made, they stop and send the user back to `grill`
@@ -29,8 +29,8 @@ straight to `to-tickets`.
 
 ### Handing over to the next step
 
-The skills run only when the person types their command (`/tilap:grill`,
-`/tilap:to-spec`, `/tilap:to-tickets`, `/tilap:to-mason`): the host refuses a call made by
+The skills run only when the person types their command (`/frame:grill`,
+`/frame:to-spec`, `/frame:to-tickets`, `/frame:to-mason`): the host refuses a call made by
 the model. So a step never starts the next one. It ends by saying which command to type,
 in this same conversation so that what was agreed stays in context, and it does not ask a
 question such as "shall we go on?" that it could not honour. If the person answers yes
@@ -45,11 +45,11 @@ has confirmed, and a step's closing line about the command to type does not appl
 Work involves up to three independent systems. They may be the same product or three
 different ones (feature board on Linear, tickets on GitHub, code in a git clone).
 
-| Place             | What it holds                         | Examples                              |
-| ----------------- | ------------------------------------- | ------------------------------------- |
-| **Feature board** | Features and their specs              | GitHub issues, Linear, Jira, GitLab   |
-| **Ticket tracker**| Tickets, the units of development work| GitHub issues, Jira, GitLab           |
-| **Code**          | The source, read-only for these skills| A git clone — usually the current directory |
+| Place              | What it holds                          | Examples                                    |
+| ------------------ | -------------------------------------- | ------------------------------------------- |
+| **Feature board**  | Features and their specs               | GitHub issues, Linear, Jira, GitLab         |
+| **Ticket tracker** | Tickets, the units of development work | GitHub issues, Jira, GitLab                 |
+| **Code**           | The source, read-only for these skills | A git clone — usually the current directory |
 
 The user names them in their request ("board: Linear project X, tickets: GitHub org/repo").
 There is **no configuration file** and nothing is remembered between sessions.

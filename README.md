@@ -10,9 +10,11 @@ Every plugin ships as a single source shared by both tools — see
 
 ## Plugins
 
-| Plugin                                               | Purpose                                                                                        |
-| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| [tilap](plugins/tilap)                               | Personal daily skills: explore options for one problem, and record the session as one dev note |
+| Plugin                           | Purpose                                                                                          |
+| -------------------------------- | ------------------------------------------------------------------------------------------------ |
+| [tilap](plugins/tilap)           | Session notes and a knowledge base of proven dev practices, through the bundled notes MCP client |
+| [frame](plugins/frame)           | Frame a feature from options to published tickets: explore, grill, spec, tickets, mason release  |
+| [checkpoint](plugins/checkpoint) | Save in-progress work to a handoff document and resume it in another session                     |
 
 ## Install
 
@@ -23,6 +25,8 @@ Register this repository as a marketplace, then enable the plugins you want:
 ```bash
 claude plugin marketplace add tilap/pinkpuma-tilap
 claude plugin install tilap@pinkpuma-tilap
+claude plugin install frame@pinkpuma-tilap
+claude plugin install checkpoint@pinkpuma-tilap
 ```
 
 To enable a plugin for every project on one machine, run the commands above once; they
@@ -33,6 +37,8 @@ commit the `.claude/settings.json` it writes:
 ```bash
 claude plugin marketplace add tilap/pinkpuma-tilap --scope project
 claude plugin install tilap@pinkpuma-tilap --scope project
+claude plugin install frame@pinkpuma-tilap --scope project
+claude plugin install checkpoint@pinkpuma-tilap --scope project
 ```
 
 This repository is private: each machine (and each collaborator) needs `git` access to

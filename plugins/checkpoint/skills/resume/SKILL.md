@@ -3,11 +3,11 @@ name: resume
 description: >-
   List available handoff documents for the current project and load the most recent (or
   a specified) one into context, falling back to reconstructing state from git when no
-  handoff was written. Use only when the user invokes /tilap:resume or /resume, to pick up
+  handoff was written. Use only when the user invokes /checkpoint:resume or /resume, to pick up
   a project that has prior handoffs or uncommitted work.
 disable-model-invocation: true
 metadata:
-  plugin: tilap
+  plugin: checkpoint
 ---
 
 # Resume

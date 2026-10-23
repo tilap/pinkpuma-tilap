@@ -3,11 +3,11 @@ name: handoff
 description: >-
   Capture the current session's in-progress, uncommitted work into a handoff document so
   it can be resumed later — in a new session, a different worktree, or by a different
-  agent entirely. Use only when the user invokes /tilap:handoff or /handoff, to pause,
+  agent entirely. Use only when the user invokes /checkpoint:handoff or /handoff, to pause,
   hand off, or save progress before stopping or switching task.
 disable-model-invocation: true
 metadata:
-  plugin: tilap
+  plugin: checkpoint
 ---
 
 # Handoff

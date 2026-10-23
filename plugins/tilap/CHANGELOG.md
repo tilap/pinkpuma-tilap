@@ -6,29 +6,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
-### Fixed
+### Removed
 
-- The e2e Ticket carries no documentation update: `to-spec` drafts none describing the e2e
-  scenarios, `to-mason`'s e2e Ticket template has none, and the release check of `REVIEW.md`
-  (item 2) verifies it. The e2e role may write only the suite folder, so such a draft could
-  never be satisfied in its ticket.
-- `grill` and `to-spec` speak of an "end-to-end acceptance suite" instead of "the e2e check",
-  a mason term that only `to-mason` and its contract keep.
-
-### Added
-
-- End-to-end acceptance in the planning chain: `grill` settles up to 5 end-to-end scenarios
-  (or a skip) when the Project uses the e2e check, `to-spec` carries them, `to-mason` creates
-  a last `e2e` Ticket blocked by all others, or leaves the `skip-test-e2e` opt-out to the
-  user. The mason contract documents both labels and the refusal.
-- `to-mason` skill and its `/tilap:plan` step: priorities, the e2e Ticket or its opt-out, and
-  the release labels, moved out of `to-tickets`, which now applies no label. The release
-  check in `REVIEW.md` is run by `to-mason`.
-
-### Changed
-
-- `contracts/github.md` is renamed `contracts/mason.md`: it describes mason on GitHub, applied
-  by `to-mason` only. `grill`, `to-spec` and `to-tickets` no longer know any label.
+- `explore`, `grill`, `to-spec`, `to-tickets`, `to-mason`, and `/tilap:plan` now live in
+  the `frame` plugin. The unreleased planning notes that were here moved with them; see
+  `plugins/frame/CHANGELOG.md`.
+- `handoff` and `resume` now live in the `checkpoint` plugin
+  (`/checkpoint:handoff`, `/checkpoint:resume`).
 
 ## [0.3.0] - 2026-10-19
 

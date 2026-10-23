@@ -1,0 +1,8 @@
+{
+  "name": "checkpoint",
+  "version": "0.1.0",
+  "description": "Save in-progress work to a handoff document and resume it in another session.",
+  "author": {
+    "name": "Julien La Vinh"
+  }
+}
