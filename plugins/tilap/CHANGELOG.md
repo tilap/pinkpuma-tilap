@@ -8,9 +8,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Fixed
 
-- The e2e Ticket carries no documentation update: `to-spec` drafts none about the e2e scenarios,
-  `to-mason`'s e2e Ticket template has none, and gate A item 4 of `REVIEW.md` checks it. The e2e
-  role may write only the suite folder, so such a draft could never be satisfied in its ticket.
+- The e2e Ticket carries no documentation update: `to-spec` drafts none describing the e2e
+  scenarios, `to-mason`'s e2e Ticket template has none, and the release check of `REVIEW.md`
+  (item 2) verifies it. The e2e role may write only the suite folder, so such a draft could
+  never be satisfied in its ticket.
+- `grill` and `to-spec` speak of an "end-to-end acceptance suite" instead of "the e2e check",
+  a mason term that only `to-mason` and its contract keep.
 
 ### Added
 

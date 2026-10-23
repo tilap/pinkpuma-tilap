@@ -68,13 +68,13 @@ Work the tree **business first**, skipping any level the need already makes obvi
 7. **Testing** — at which boundaries the behaviour can be checked from outside (existing
    ones first), so tickets can state observable outcomes later.
 8. **End-to-end acceptance** — only when the need has user-facing behaviour: ask in one
-   short question whether the target Project uses the end-to-end (e2e) check (the plugin
+   short question whether the target Project proves features with an end-to-end (e2e) acceptance suite (the plugin
    keeps no configuration, so never guess it). If it does, settle **at most 5 scenarios**,
    each an end-to-end user journey observable from outside, in plain language, never
    implementation; or an explicit **skip** (a backend-only or trivial need is expected to
    skip). A journey behind a sign-in states that a test account exists. These scenarios are
    distinct from the business scenarios of level 4: they prove the assembled feature once,
-   not each rule. If the Project does not use the check, record "e2e: not used".
+   not each rule. If the Project has no such suite, record "e2e: not used".
 9. **Cross-cutting** — for each of data migration, security and permissions, performance or
    limits, dependency changes and backward compatibility: does the need touch it? Settle a
    decision, or an explicit "not concerned", so no review later has to guess.
