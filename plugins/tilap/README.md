@@ -20,10 +20,11 @@ site that stores the notes.
 | [grill](skills/grill/SKILL.md)               | The user invokes `/tilap:grill`        |
 | [to-spec](skills/to-spec/SKILL.md)           | The user invokes `/tilap:to-spec`      |
 | [to-tickets](skills/to-tickets/SKILL.md)     | The user invokes `/tilap:to-tickets`   |
+| [to-mason](skills/to-mason/SKILL.md)         | The user invokes `/tilap:to-mason`     |
 
 | Command                    | Use when                                                  |
 | -------------------------- | --------------------------------------------------------- |
-| [plan](commands/plan.md)   | The user types `/tilap:plan <idea>`: grill, to-spec, to-tickets in order |
+| [plan](commands/plan.md)   | The user types `/tilap:plan <idea>`: grill, to-spec, to-tickets, then to-mason if the project uses it |
 
 `explore` reads the repo, labels current choices as choices, and proposes at least one
 option that leaves a prior choice. It does not edit files. It does not run on its own.
@@ -46,7 +47,9 @@ default, and flags a deviation instead of forcing the rule. It is read-only.
 latest one, or rebuilds the state from git when none exists. Neither runs on its own.
 
 `grill`, `to-spec` and `to-tickets` turn an idea into a feature spec and self-contained
-tickets, one confirmed step at a time; `/tilap:plan` chains them. They run only when typed.
+tickets, one confirmed step at a time, and know nothing of any development system.
+`to-mason` then applies mason's labels, adds the e2e Ticket and releases the work.
+`/tilap:plan` chains them. They run only when typed.
 Their shared rules, review gates and tracker contracts are in
 [feature-planning/](feature-planning/): [CONVENTIONS.md](feature-planning/CONVENTIONS.md),
 [REVIEW.md](feature-planning/REVIEW.md), [contracts/](feature-planning/contracts/).

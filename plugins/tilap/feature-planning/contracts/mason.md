@@ -1,7 +1,8 @@
-# Contract: GitHub features and tickets
+# Contract: mason on GitHub
 
-What the automated development system reads when features and tickets are on GitHub, and
-what follows from each choice. Distilled from the system's own contract document (marked
+What mason, the automated development system, reads when features and tickets are on GitHub,
+and what follows from each choice. Applied by the `to-mason` skill; the core skills (`grill`,
+`to-spec`, `to-tickets`) do not depend on it. Distilled from the system's own contract document (marked
 there as temporary): if the system changes, this file is what to update.
 
 The system builds software from issues, unattended. It does **not** split work, write
@@ -118,7 +119,7 @@ ticket carries `task-ready`.
 **Order of creation** — so nothing opens on a half-written list:
 
 1. Create the feature **without** `feature-ready`.
-2. Create all tickets as sub-issues, with blockers and priorities.
+2. Create all tickets as sub-issues, with blockers and priorities, the e2e Ticket last.
 3. A human validates the list.
 4. Add `task-ready` to every ticket, together.
 5. Add `feature-ready` to the feature, **last**.
