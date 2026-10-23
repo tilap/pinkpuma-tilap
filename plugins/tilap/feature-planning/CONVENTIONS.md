@@ -6,18 +6,23 @@ instead of repeating it.
 ## The chain
 
 ```
-grill  →  to-spec  →  to-tickets  →  (release to the dev system, then development)
+grill  →  to-spec  →  to-tickets  →  to-mason  →  (development)
 ```
 
 | Skill        | Decides? | Output                                                         | Lives in               |
 | ------------ | -------- | -------------------------------------------------------------- | ---------------------- |
 | `grill`      | Yes      | A shared, complete understanding of the need                   | The conversation       |
 | `to-spec`    | No       | A rich feature spec, published                                 | The feature board      |
-| `to-tickets` | No       | Self-contained, dependency-linked tickets, published, then released | The ticket tracker |
+| `to-tickets` | No       | Self-contained, dependency-linked tickets, published           | The ticket tracker     |
+| `to-mason`   | No       | Labels, the e2e Ticket, then the release to mason (optional)   | The ticket tracker     |
 
 Only `grill` makes decisions. `to-spec` and `to-tickets` record and slice what was already
 decided: if they need a decision nobody made, they stop and send the user back to `grill`
 rather than inventing one.
+
+`grill`, `to-spec` and `to-tickets` know nothing of any development system. `to-mason` is the
+only skill that applies mason's labels and rules; a project built otherwise stops after
+`to-tickets`.
 
 Skip a step that buys nothing: a need small enough for one ticket can go from `grill`
 straight to `to-tickets`.
@@ -25,7 +30,7 @@ straight to `to-tickets`.
 ### Handing over to the next step
 
 The skills run only when the person types their command (`/tilap:grill`,
-`/tilap:to-spec`, `/tilap:to-tickets`): the host refuses a call made by
+`/tilap:to-spec`, `/tilap:to-tickets`, `/tilap:to-mason`): the host refuses a call made by
 the model. So a step never starts the next one. It ends by saying which command to type,
 in this same conversation so that what was agreed stays in context, and it does not ask a
 question such as "shall we go on?" that it could not honour. If the person answers yes
@@ -60,13 +65,13 @@ There is **no configuration file** and nothing is remembered between sessions.
 
 ### Downstream contracts
 
-The tickets are consumed by an automated development system whose expectations are not
-negotiable: a ticket it cannot read is dropped silently. Each tracker has a contract file
-under [contracts/](contracts/) describing what that system reads and requires:
+When tickets are consumed by an automated development system, its expectations are not
+negotiable: a ticket it cannot read is dropped silently. Each system has a contract file
+under [contracts/](contracts/), applied by its own skill, never by the core:
 
-- GitHub: [contracts/github.md](contracts/github.md).
-- Any other system: **no contract exists yet.** Say so, do not guess one from GitHub's, and
-  ask the user for its rules before publishing tickets there. Drafting is still fine.
+- mason on GitHub: [contracts/mason.md](contracts/mason.md), applied by `to-mason`.
+- Any other system: **no contract exists yet.** Say so, do not guess one from mason's, and
+  ask the user for its rules before labelling anything. Drafting is still fine.
 
 ## Review gates
 

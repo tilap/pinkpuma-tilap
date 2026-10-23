@@ -58,10 +58,10 @@ full, none of them about the end-to-end scenarios: those live in the e2e suite f
 module boundary), replace User stories with "Technical change — no user-facing stories" and
 put the weight on Implementation and Testing decisions.
 
-If the board has a contract file in [../../contracts/](../../feature-planning/contracts/), apply what it says
-about the feature. On GitHub the body is read word for word as the statement the final
-reviewer sees, so it leads with the problem and the solution. No contract file for the
-board in use → say so; the spec is still drafted.
+If the board is GitHub and the work will be built by mason, apply the feature rules of
+[../../contracts/mason.md](../../feature-planning/contracts/mason.md): the body is read word for word as the
+statement the final reviewer sees, so it leads with the problem and the solution. Otherwise
+the spec is drafted without a contract.
 
 ## Step 5 — Publish
 
@@ -72,8 +72,8 @@ board in use → say so; the spec is still drafted.
    explicit approval.
 4. Create the feature through the tool for that board (`gh issue create --body-file -` for
    GitHub; the connector for Linear or Jira; otherwise hand the text over for pasting).
-   **Do not add the feature-ready label** (GitHub default: `feature-ready`) or any label that tells a downstream system to start: that
-   is the last step of `to-tickets`, once its tickets exist.
+   **Add no label that tells a downstream system to start** (GitHub with mason:
+   `feature-ready`): that is the last step of `to-mason`, once the tickets exist.
 5. Report the feature's link and tell the person to type `/tilap:to-tickets` **in
    this same conversation**, so the spec never has to be fetched back (Handing over to the
    next step, in the conventions). You cannot start it yourself.

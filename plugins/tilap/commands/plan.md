@@ -1,12 +1,12 @@
 ---
-description: Take a feature from a fuzzy idea to a published spec and published tickets, one confirmed step at a time (grill, then to-spec, then to-tickets).
+description: Take a feature from a fuzzy idea to a published spec and published tickets, one confirmed step at a time (grill, then to-spec, then to-tickets, then to-mason when the project uses it).
 argument-hint: "[the idea, or the link of an existing feature]"
 disable-model-invocation: true
 ---
 
 # Plan a feature
 
-Take this need through the three steps of the plugin, in this conversation, one after
+Take this need through the steps of the plugin, in this conversation, one after
 the other: $ARGUMENTS
 
 If no need was given above, ask for it first. Then settle the three places (feature board,
@@ -24,7 +24,10 @@ file and following it exactly as written, not by calling it by name:
    Write and publish the feature spec. Skip it when the grill concluded that the need fits a
    single ticket.
 3. **To tickets** — [skills/to-tickets/SKILL.md](${CLAUDE_PLUGIN_ROOT}/skills/to-tickets/SKILL.md).
-   Slice the spec, publish the tickets, then release them.
+   Slice the spec and publish the tickets.
+4. **To mason** — [skills/to-mason/SKILL.md](${CLAUDE_PLUGIN_ROOT}/skills/to-mason/SKILL.md).
+   Only when the project is built by mason (ask once): labels, the e2e Ticket, then the
+   release.
 
 Rules of the chain:
 

@@ -3,8 +3,8 @@ name: to-tickets
 description: >-
   Break a feature spec (or the current conversation) into vertical-slice, self-contained
   tickets that each leave the project green on their own, publish them to the ticket
-  tracker with their blocking links, and — on separate explicit approval — release them to
-  the automated development system. Use after to-spec, or on a plan already settled.
+  tracker with their blocking links. Use after to-spec, or on a plan already settled. Hands
+  over to to-mason for the labels and the release to the automated development system.
 disable-model-invocation: true
 metadata:
   plugin: tilap
@@ -13,11 +13,9 @@ metadata:
 # To tickets
 
 Conventions: [../../CONVENTIONS.md](../../feature-planning/CONVENTIONS.md) — read it first (the three
-places, nothing written to disk, publishing and writing rules). **Then read the contract
-for the ticket tracker** in [../../contracts/](../../feature-planning/contracts/): the tickets are consumed
-by an automated system that drops what it cannot read, so its rules are requirements here.
-No contract file for the tracker in use → say so and ask the user for its rules before
-publishing; drafting is still fine.
+places, nothing written to disk, publishing and writing rules). This skill is independent of
+any downstream system: it publishes tickets and their blocking links and applies no label.
+Priority labels, the e2e Ticket and the release belong to `to-mason` (Step 8).
 
 One job: cut decided work into tickets a coding agent can pick up and finish alone, each
 declaring the tickets that **block** it. Like `to-spec`, this skill decides nothing: if
@@ -65,20 +63,12 @@ without a priority label: the default applies. When in doubt between the two, us
 
 **Documentation updates.** Attach each draft from the spec to the ticket whose behaviour
 makes it true — never to a documentation-only ticket — in full, with a criterion that it is
-written. Every draft lands in exactly one ticket. Never in the e2e Ticket, which writes only
-the e2e suite folder: its body has no Documentation update section.
+written. Every draft lands in exactly one ticket.
 
 **Wide-refactor exception.** One mechanical change whose blast radius covers the codebase
 cannot land as a green vertical slice. Sequence it **expand → migrate → contract**: add the
 new form beside the old; migrate callers in batches (one ticket each, blocked by the
 expand); delete the old form in a ticket blocked by every batch.
-
-**End-to-end ticket.** When the spec carries end-to-end scenarios (`E1`, …), add one last
-ticket, the **e2e Ticket**, blocked by **every** other ticket of the feature, so it is built
-on the assembled feature. It is not a vertical slice and is exempt from the Tests section
-and the tracer-bullet test above; its body is described in Step 4. When the spec records a
-skip, add no such ticket. Where the spec says nothing about it and the Project uses the e2e
-check, stop and send the user back to `grill`: the contract refuses a feature with neither.
 
 ## Step 4 — Write each body as the agent's whole world
 
@@ -91,16 +81,6 @@ spec, not the other tickets. So each body:
 - may name the few paths that matter (where to change, which test to extend), without line
   numbers or code (see Conventions);
 - says what the ticket must **not** touch, usually the next ticket's behaviour.
-
-The **e2e Ticket** body is the exception to the restating rule above: it holds the spec's
-end-to-end scenarios **verbatim, with their ids**, and tells its agent that:
-
-- it may write only the e2e suite folder and a manifest `e2e/scenarios.json` listing the
-  scenario ids; each test carries its scenario id in its name;
-- it must not touch application code, and must not run or fix the app: a red suite is
-  repaired later at feature level, by another pass;
-- if a scenario is unclear or needs something the repository lacks (a test account, say),
-  it stops and says so (see "If unsure").
 
 Then make every acceptance criterion able to fail: name the observation that would show it
 false, and check that it fails at the starting commit, is satisfiable inside this ticket
@@ -146,15 +126,14 @@ Present the breakdown as a numbered list in dependency order:
 2. <Title> — blocked by: 1 — priority: none — checkable: … — tests: …
 ```
 
-Show the e2e Ticket last, blocked by all the others, or the opt-out. Then ask: is the granularity right? Is every blocking edge real? Does every required
+Then ask: is the granularity right? Is every blocking edge real? Does every required
 build order appear as a block rather than a priority? Should any ticket be merged or split? Iterate until the user approves the list. Nothing is published before that.
 
 ## Step 6 — Validate before publishing
 
-Run the contract's checklist over every ticket (the e2e Ticket included, with its labels and blockers) and over the feature, and report the result
-as a short table (ticket × check). Fix what fails. In particular, check what the system
-would drop silently: missing title or body, more than one priority label or a value off the
-contract's scale, a cycle, a ticket that relies on a later one. Also check that no required
+Run these checks over every ticket and over the feature, and report the result as a short
+table (ticket × check). Fix what fails: a missing title or body, a cycle, a ticket that
+relies on a later one, a blocker outside the feature. Also check that no required
 order rests on priorities alone, and that every ticket has a Tests section (cases with
 Given / When / Then and the interface under test named, each numeric Then produced by the
 data its own Given seeds) or an explicit `Tests: none` with its reason and the check that
@@ -162,8 +141,8 @@ guards it.
 
 Then build the **review sheet**, the input of the plan review and of the final review:
 
-- A **matrix**, one row per rule `R*`, scenario `S*`, end-to-end scenario `E*` and documentation update `DU*` of the
-  spec (the `E*` rows point at the e2e Ticket): the ticket(s) that carry it and the case of the ticket's Tests section (seam and interface) that proves it. A row with
+- A **matrix**, one row per rule `R*`, scenario `S*` and documentation update `DU*` of the
+  spec: the ticket(s) that carry it and the case of the ticket's Tests section (seam and interface) that proves it. A row with
   no ticket is a gap; a ticket criterion with no row is an orphan. Fix both before going on.
 - For a feature without a spec (a single ticket), one row per "Done when" line.
 
@@ -179,40 +158,32 @@ order, blockers first, so each can reference real numbers:
 
 - **Same system as the feature, native links available** (GitHub): create each as a
   sub-issue of the feature with its blockers — `gh issue create --parent <feature>
-  --blocked-by <n>,<n> --title … --body-file -` — plus a `priority:` label only on the
-  tickets whose draft carries one. **Do not add the ticket-ready label** yet. Create the
-  e2e Ticket last, blocked by every other ticket, with the e2e label; check with `gh label
-  list` that it exists first and report it if not, never create it (see Conventions).
-- **Opt-out** (the spec records a skip): create no e2e Ticket, apply nothing to the feature
-  here, and tell the user to put the opt-out label on the feature themselves; check that
-  the label exists. Never leave a feature on a Project with the e2e check with neither.
+  --blocked-by <n>,<n> --title … --body-file -`. **Apply no label**: priorities, the e2e
+  Ticket and the readiness labels belong to a downstream skill (Step 8).
 - **Feature on another system**: create the tickets in the tracker and, as the last line of
-  each body, the feature's URL as a plain reference. Say that the downstream contract for
-  this combination is not known; do not release (Step 8).
+  each body, the feature's URL as a plain reference.
 - Do not close or edit the feature or any existing item (the review sheet below is a new
   comment, not an edit).
 
 - With the user's approval of its exact text, post the **review sheet** (the matrix, with
   the published ticket numbers, then the checks of gates B and C that the matrix feeds) as
   **one comment on the feature**. The final reviewer reads it there. It is a comment: the
-  system never reads comments as instructions, so it changes nothing about the work.
+  downstream system does not read comments as instructions, so it changes nothing about the
+  work.
 
 Report each ticket's number, title and blockers, the tickets with no blocker (the frontier),
 and which ticket carries each documentation update. Then stop and ask for the validation of
 the list as it now stands on the tracker.
 
-## Step 8 — Release to the development system (separate approval)
+## Step 8 — Hand over
 
-Only when the contract says labels start development, and only after the user has looked at
-the published tickets and says go. Explain what will happen first: **from the moment the
-labels are in place, development may start unattended.** On approval, in this order:
+This skill ends here: the tickets stand on the tracker with their blocking links, and nothing
+tells any system to start. Report the frontier, then say which command to type next, in this
+same conversation (Handing over to the next step, in the conventions):
 
-1. Add the "tickets final" label (GitHub default: `task-ready`) to **every** ticket, e2e
-   Ticket included, together.
-2. Add the "feature final" label (GitHub default: `feature-ready`) to the feature, **last**.
-
-Never set or remove labels the system manages (GitHub: `mason:*`). A ticket added after the
-release is ignored by the system; if the list must change, tell the user rather than adding.
+- the project is built by mason → `/tilap:to-mason`, which applies the priorities and labels,
+  adds the e2e Ticket and releases the work;
+- any other system → no skill exists for it: say so, and leave the tickets as they are.
 
 ## Ticket template
 
