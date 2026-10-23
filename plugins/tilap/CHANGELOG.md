@@ -4,6 +4,22 @@ All notable changes to this plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Fixed
+
+- The e2e Ticket carries no documentation update: `to-spec` drafts none about the e2e scenarios,
+  `to-tickets` never attaches one to it, and gate A item 4 of `REVIEW.md` checks it. The e2e
+  role may write only the suite folder, so such a draft could never be satisfied in its ticket.
+
+### Added
+
+- End-to-end acceptance in the planning chain: `grill` settles up to 5 end-to-end scenarios
+  (or a skip) when the Project uses the e2e check, `to-spec` carries them, `to-tickets`
+  creates a last `e2e` Ticket blocked by all others, or leaves the `skip-test-e2e` opt-out
+  to the user. `contracts/github.md` documents both labels and the refusal; gate A of
+  `REVIEW.md` gains item 14.
+
 ## [0.3.0] - 2026-10-19
 
 ### Added
