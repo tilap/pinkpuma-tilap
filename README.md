@@ -10,11 +10,11 @@ Every plugin ships as a single source shared by both tools — see
 
 ## Plugins
 
-| Plugin                           | Purpose                                                                                          |
-| -------------------------------- | ------------------------------------------------------------------------------------------------ |
-| [tilap](plugins/tilap)           | Session notes and a knowledge base of proven dev practices, through the bundled notes MCP client |
-| [frame](plugins/frame)           | Frame a feature from options to published tickets: explore, grill, spec, tickets, mason release  |
-| [checkpoint](plugins/checkpoint) | Save in-progress work to a handoff document and resume it in another session                     |
+| Plugin                           | Purpose                                                                                                       |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| [tilap](plugins/tilap)           | Session notes, a knowledge base, and a glossary of foreign-language expressions, through the notes MCP client |
+| [frame](plugins/frame)           | Frame a feature from options to published tickets: explore, grill, spec, tickets, mason release               |
+| [checkpoint](plugins/checkpoint) | Save in-progress work to a handoff document and resume it in another session                                  |
 
 ## Install
 

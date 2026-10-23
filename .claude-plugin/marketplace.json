@@ -8,7 +8,7 @@
     {
       "name": "tilap",
       "source": "./plugins/tilap",
-      "description": "Session notes and a knowledge base of proven dev practices, through the bundled notes MCP client."
+      "description": "Session notes, a knowledge base of proven dev practices, and a private glossary of foreign-language expressions, through the bundled notes MCP client."
     },
     {
       "name": "frame",

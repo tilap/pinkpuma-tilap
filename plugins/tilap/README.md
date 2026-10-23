@@ -4,8 +4,9 @@
 /plugin install tilap --marketplace tilap/pinkpuma-tilap
 ```
 
-Session notes and a knowledge base of proven dev practices. Install it in the project
-where the work happened, not in the site that stores the notes.
+Session notes, a knowledge base of proven dev practices, and a private glossary of
+foreign-language expressions. Install it in the project where the work happened, not in
+the site that stores them.
 
 ## Skills
 
@@ -14,6 +15,7 @@ where the work happened, not in the site that stores the notes.
 | [session-note](skills/session-note/SKILL.md)         | The user invokes `/tilap:session-note`   |
 | [knowledge](skills/knowledge/SKILL.md)               | The user invokes `/tilap:knowledge`      |
 | [knowledge-search](skills/knowledge-search/SKILL.md) | Before designing or implementing a topic |
+| [lang](skills/lang/SKILL.md)                         | The user invokes `/tilap:lang`           |
 
 `session-note` runs only when invoked. It writes one note (`log`, `recipe`, `pitfall`, or `decision`) through
 `create_session_note` and stops. The kind is the first tag, because the server has no
@@ -27,6 +29,10 @@ entries stay `draft` until the user approves activating them.
 `knowledge-search` is the only skill that runs on its own. Before a design or implementation
 topic it calls `list_knowledge` then `get_knowledge`, applies the matching entries as the
 default, and flags a deviation instead of forcing the rule. It is read-only.
+
+`lang` runs only when invoked. It checks `list_expressions`, then stores one phrase
+and its French translation with `create_expression` (or `update_expression` when that
+phrase is already there). It does not create a file.
 
 ## MCP client
 

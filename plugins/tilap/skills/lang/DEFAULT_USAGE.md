@@ -1,0 +1,1 @@
+- **Foreign-language glossary.** If the `lang` skill is available, use it only when the user invokes `/tilap:lang` to store a phrase and its French translation in their private glossary through the notes MCP. It does not create a file.

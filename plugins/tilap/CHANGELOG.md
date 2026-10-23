@@ -6,6 +6,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added
+
+- `lang` skill: stores one foreign-language phrase and its French translation in
+  the private glossary through the notes MCP (`/tilap:lang`). It checks
+  `list_expressions` first and does not auto-invoke.
+
 ### Removed
 
 - `explore`, `grill`, `to-spec`, `to-tickets`, `to-mason`, and `/tilap:plan` now live in
