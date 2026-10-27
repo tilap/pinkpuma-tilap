@@ -4,7 +4,7 @@ All notable changes to this plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [Unreleased]
+## [0.2.0] - 2026-10-27
 
 ### Changed
 
@@ -16,6 +16,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   one-line feature-tests decision. `to-mason` reads `mason.config.yaml` to know whether the
   project declares the check, then creates a `feature-test` Ticket or leaves the
   `skip-feature-test` opt-out. The mason contract and the release check follow.
+- `grill` (level 8), `to-spec` and the plan review (item 9) take in every cross-cutting
+  standard the project's documentation names (accessibility, design, a security policy, a
+  global journey suite): what it requires of the need in observable terms and where it is
+  checked. A standard the docs do not hold is not invented.
 
 ## [0.1.0] - 2026-10-23
 

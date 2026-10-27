@@ -1,6 +1,6 @@
 {
   "name": "frame",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Frame a feature from options to published tickets: explore, grill, spec, tickets, and mason release.",
   "author": {
     "name": "Julien La Vinh"
