@@ -26,7 +26,7 @@ file and following it exactly as written, not by calling it by name:
 3. **To tickets** — [skills/to-tickets/SKILL.md](${CLAUDE_PLUGIN_ROOT}/skills/to-tickets/SKILL.md).
    Slice the spec and publish the tickets.
 4. **To mason** — [skills/to-mason/SKILL.md](${CLAUDE_PLUGIN_ROOT}/skills/to-mason/SKILL.md).
-   Only when the project is built by mason (ask once): labels, the e2e Ticket, then the
+   Only when the project is built by mason (ask once): labels, the feature-test Ticket, then the
    release.
 
 Rules of the chain:

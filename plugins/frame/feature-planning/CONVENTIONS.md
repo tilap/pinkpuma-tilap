@@ -14,7 +14,7 @@ grill  →  to-spec  →  to-tickets  →  to-mason  →  (development)
 | `grill`      | Yes      | A shared, complete understanding of the need                 | The conversation   |
 | `to-spec`    | No       | A rich feature spec, published                               | The feature board  |
 | `to-tickets` | No       | Self-contained, dependency-linked tickets, published         | The ticket tracker |
-| `to-mason`   | No       | Labels, the e2e Ticket, then the release to mason (optional) | The ticket tracker |
+| `to-mason`   | No       | Labels, the feature-test Ticket, then the release (optional) | The ticket tracker |
 
 Only `grill` makes decisions. `to-spec` and `to-tickets` record and slice what was already
 decided: if they need a decision nobody made, they stop and send the user back to `grill`

@@ -27,7 +27,7 @@ It is not part of `/frame:plan`.
 
 `grill`, `to-spec` and `to-tickets` turn an idea into a feature spec and self-contained
 tickets, one confirmed step at a time, and know nothing of any development system.
-`to-mason` then applies mason's labels, adds the e2e Ticket and releases the work.
+`to-mason` then applies mason's labels, adds the feature-test Ticket and releases the work.
 `/frame:plan` chains them. They run only when typed.
 Their shared rules, review gates and tracker contracts are in
 [feature-planning/](feature-planning/): [CONVENTIONS.md](feature-planning/CONVENTIONS.md),

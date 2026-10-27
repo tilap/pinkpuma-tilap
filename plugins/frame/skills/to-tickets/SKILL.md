@@ -15,7 +15,7 @@ metadata:
 Conventions: [../../CONVENTIONS.md](../../feature-planning/CONVENTIONS.md) — read it first (the three
 places, nothing written to disk, publishing and writing rules). This skill is independent of
 any downstream system: it publishes tickets and their blocking links and applies no label.
-Priority labels, the e2e Ticket and the release belong to `to-mason` (Step 8).
+Priority labels, the feature-test Ticket and the release belong to `to-mason` (Step 8).
 
 One job: cut decided work into tickets a coding agent can pick up and finish alone, each
 declaring the tickets that **block** it. Like `to-spec`, this skill decides nothing: if
@@ -158,7 +158,7 @@ order, blockers first, so each can reference real numbers:
 
 - **Same system as the feature, native links available** (GitHub): create each as a
   sub-issue of the feature with its blockers — `gh issue create --parent <feature>
-  --blocked-by <n>,<n> --title … --body-file -`. **Apply no label**: priorities, the e2e
+  --blocked-by <n>,<n> --title … --body-file -`. **Apply no label**: priorities, the feature-test
   Ticket and the readiness labels belong to a downstream skill (Step 8).
 - **Feature on another system**: create the tickets in the tracker and, as the last line of
   each body, the feature's URL as a plain reference.
@@ -182,7 +182,7 @@ tells any system to start. Report the frontier, then say which command to type n
 same conversation (Handing over to the next step, in the conventions):
 
 - the project is built by mason → `/frame:to-mason`, which applies the priorities and labels,
-  adds the e2e Ticket and releases the work;
+  adds the feature-test Ticket and releases the work;
 - any other system → no skill exists for it: say so, and leave the tickets as they are.
 
 ## Ticket template

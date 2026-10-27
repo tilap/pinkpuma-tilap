@@ -69,16 +69,18 @@ Run after the tickets are published and before any ready label is added.
 
 Run after gate A, before any ready label is added.
 
-1. **End-to-end check is present or waived.** On a project that uses the e2e check, the
-   feature has an e2e Ticket, blocked by every other ticket, whose body holds the agreed
-   scenarios verbatim with their ids, or an explicit opt-out decided with the user.
-   *Evidence*: the scenarios in the spec side by side with the e2e Ticket body, or the
-   recorded skip. *On fail*: add the ticket or get the opt-out decision; `n/a` only when the
-   project does not use the check.
-2. **The e2e Ticket carries no documentation update.** Its agent may write only the e2e
-   suite folder, so a `DU*` there could never be satisfied. *Evidence*: the e2e Ticket body
-   has no Documentation update section. *On fail*: remove it; the scenarios are documented
-   by the suite itself. `n/a` when there is no e2e Ticket.
+1. **Feature-test check is present or waived.** On a project that uses the feature-test
+   check, the feature has a feature-test Ticket, blocked by every other ticket, whose body
+   holds the spec's acceptance scenarios verbatim with their ids (the ones the spec leaves
+   out are named with their reason), or an explicit opt-out decided with the user.
+   *Evidence*: the scenarios in the spec side by side with the feature-test Ticket body, or
+   the recorded skip. *On fail*: add the ticket or get the opt-out decision; `n/a` only when
+   the project does not use the check.
+2. **The feature-test Ticket carries no documentation update.** Its agent may write only
+   tests and the manifest, so a `DU*` there could never be satisfied. *Evidence*: the
+   feature-test Ticket body has no Documentation update section. *On fail*: remove it; the
+   scenarios are documented by the tests themselves. `n/a` when there is no feature-test
+   Ticket.
 3. **Mason contract.** The contract's checklist passes (labels, priorities, sub-issues,
    blockers). *Evidence*: the table of `to-mason` Step 2.
 

@@ -4,6 +4,19 @@ All notable changes to this plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Changed
+
+- The end-to-end acceptance suite per feature is replaced by **feature tests**, following
+  bluewombat: the spec's acceptance scenarios `S*` are what the last ticket proves, once, on the
+  assembled feature, with plain tests at the level each scenario names. `grill` no longer asks
+  whether the project has an e2e suite, caps nothing at 5 scenarios and settles instead which
+  scenarios cannot be proved from outside, or a skip. `to-spec` drops its end-to-end section for a
+  one-line feature-tests decision. `to-mason` reads `mason.config.yaml` to know whether the
+  project declares the check, then creates a `feature-test` Ticket or leaves the
+  `skip-feature-test` opt-out. The mason contract and the release check follow.
+
 ## [0.1.0] - 2026-10-23
 
 ### Added
