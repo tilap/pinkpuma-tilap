@@ -76,8 +76,13 @@ Work the tree **business first**, skipping any level the need already makes obvi
    tooling decides whether the check runs. Never write a scenario that only a full browser
    journey could prove unless the need is that journey.
 8. **Cross-cutting** — for each of data migration, security and permissions, performance or
-   limits, dependency changes and backward compatibility: does the need touch it? Settle a
-   decision, or an explicit "not concerned", so no review later has to guess.
+   limits, dependency changes and backward compatibility, **and every other cross-cutting
+   standard the project's own documentation sets** (accessibility, design, a security
+   policy, a global journey suite… whatever the docs you read in Step 2 name): does the
+   need touch it? Settle a decision, or an explicit "not concerned", so no review later has
+   to guess. Where a project standard applies, state what it requires of this need in
+   observable terms, and say where it is checked when the docs say so (the project's CI,
+   a Gate, the feature tests); do not invent a standard the docs do not hold.
 
 Keep the language sharp while interviewing:
 

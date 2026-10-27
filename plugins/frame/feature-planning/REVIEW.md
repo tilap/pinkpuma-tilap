@@ -46,8 +46,9 @@ Run after the tickets are published and before any ready label is added.
 8. **Order is enforced by blocks.** Every required order is a *blocked by* edge, not a
    priority; no cycle.
 9. **Cross-cutting concerns decided.** For each of: data migration, security and
-   permissions, performance or limits, dependency changes, backward compatibility — either
-   a ticket carries an outcome for it, or the spec's Out of scope says why not.
+   permissions, performance or limits, dependency changes, backward compatibility, and each
+   cross-cutting standard the spec names (accessibility, design…) — either a ticket carries
+   an outcome for it, or the spec's Out of scope says why not.
 10. **No decision hidden in a ticket.** Nothing in a ticket body answers a question the
     spec lists as open.
 11. **Tickets are readable.** Each ticket has a title and a body, is a sub-issue of the feature

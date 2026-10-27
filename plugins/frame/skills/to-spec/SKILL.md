@@ -129,7 +129,8 @@ tests on the assembled feature, at the level each names.>
 
 - <ADR or document> — <what it imposes here>
 - **Cross-cutting**: <migration, security and permissions, performance or limits,
-  dependencies, backward compatibility — each with its decision, or "not concerned">.
+  dependencies, backward compatibility, and each project standard `grill` settled
+  (accessibility, design…) — each with its decision, or "not concerned">.
   Tickets turn these into outcomes and reviewers check them, so none is left implicit.
 
 ## Documentation updates
