@@ -4,6 +4,18 @@ All notable changes to this plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.2.1] - 2026-11-02
+
+### Changed
+
+- Tickets no longer promise tests "written first by another agent": the system's producer writes code and tests together.
+
+### Added
+
+- Gate A items 14-16: shared state is sequenced by blockers, shared rules (identity, keys) are set once and consistent, prerequisites exist on the base branch.
+- Mason release check items 4-5: the base branch is ready, and the mason settings (parallelism, install step) fit the plan.
+- Mason contract known limits: feature branch cut once, workspaces installed once, parallel tickets and shared files, shared cache race.
+
 ## [0.2.0] - 2026-10-27
 
 ### Changed
