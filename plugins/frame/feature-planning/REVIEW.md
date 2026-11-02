@@ -66,6 +66,18 @@ Run after the tickets are published and before any ready label is added.
     rewrite the Given or split the case; a Then the tests agent must complete by guessing
     is how it writes a test no implementation can pass.
 
+14. **Shared state is sequenced.** Any two tickets that change the same shared artifact
+    (schema and migrations, lockfile, generated file, configuration) are chained by *blocked
+    by*. *Evidence*: the pairs, and the edge that orders each. *On fail*: add the edge.
+15. **Shared rules are set once and consistent.** For each rule several tickets rely on (the
+    identity or key of a record, a naming rule, an interface), the first ticket that creates
+    it states it exactly, and no later ticket's case contradicts it. *Evidence*: per rule, the
+    ticket that sets it and the later cases checked against it. *On fail*: correct the first
+    ticket, or add the missing ticket, before release.
+16. **Prerequisites exist.** Every package, file, record or decision a ticket names exists on
+    the branch work starts from, or is created by a ticket it is blocked by. *Evidence*: per
+    name, where it is (branch, or ticket number). *On fail*: merge the prerequisite first.
+
 ## Release check — mason (run by `to-mason`)
 
 Run after gate A, before any ready label is added.
@@ -84,6 +96,15 @@ Run after gate A, before any ready label is added.
    Ticket.
 3. **Mason contract.** The contract's checklist passes (labels, priorities, sub-issues,
    blockers). *Evidence*: the table of `to-mason` Step 2.
+4. **The base branch is ready.** Everything the tickets rely on is merged on the branch the
+   feature will be cut from, and nothing is merged on it after the feature opens that the
+   feature must see (the feature branch is cut once). *Evidence*: the branch, and the
+   prerequisites of gate A item 16 found on it. *On fail*: merge first, then release.
+5. **The system's settings fit the plan.** The project's mason configuration (parallelism,
+   install step, test command) matches what the plan assumes: ticket parallelism is 1 unless
+   tickets never touch the same shared files; dependencies are installed before the checks
+   run. *Evidence*: the settings read from `mason.config.yaml`. *On fail*: tell the user, who
+   decides.
 
 ## Gate B — Ticket (each pull request)
 
@@ -91,8 +112,8 @@ Run after gate A, before any ready label is added.
    proves it. *Evidence*: line → test or file. *On fail*: send back with the unmet line.
 2. **Each outcome has a test that would fail without the change.** A test that passes on
    the starting commit proves nothing. *Evidence*: the test, and why it fails before. The
-   tests are those of the ticket's Tests section, written before the code and not edited by
-   it; a test changed to pass is a `fail`.
+   tests implement the cases of the ticket's Tests section; a test changed to pass is a
+   `fail`.
 3. **Tests sit at the agreed seams** and check behaviour, not implementation details.
 4. **Nothing in "Out of scope" was touched**, and the diff holds no change the ticket
    does not call for. *On fail*: ask to split the extra change out.

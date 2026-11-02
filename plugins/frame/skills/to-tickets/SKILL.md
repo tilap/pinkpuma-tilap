@@ -86,10 +86,27 @@ Then make every acceptance criterion able to fail: name the observation that wou
 false, and check that it fails at the starting commit, is satisfiable inside this ticket
 alone, and derives from the spec. Rewrite or drop any that misses one.
 
-**Specify the tests, so they can be written first.** The tests of a ticket are written
-*before* its code, by an agent that sees only this body and is not the one that writes the
-code; the code must then make them pass without editing them. So the ticket defines them —
-as cases, never as test code — and the reviewer can match criterion to test (gate B in
+**Sequence for shared state, and set interfaces once.** Tickets run one after another on a
+feature branch, but a system may run independent ones side by side, and a ticket only sees
+what is already merged. So:
+
+- two tickets that change the same shared artifact — the database schema and its migrations,
+  a lockfile, a generated file, a configuration — are chained by *blocked by*, never left
+  independent: two migrations generated in parallel collide on their number;
+- a rule that several tickets depend on (the identity of a record, a key, a naming rule) is
+  fixed in the **first** ticket that creates the thing, stated exactly (for example "a
+  tracked alliance is identified by its kingdom and its case-sensitive tag"), and every later
+  ticket's cases must hold with that definition; if a later ticket needs a different one,
+  the first ticket is wrong: fix it before publishing;
+- every file, package, record or decision a ticket names already exists on the branch work
+  starts from, or is created by a ticket it is blocked by. Otherwise it goes out as a
+  prerequisite for the person, not as a ticket.
+
+**Specify the tests, so they can be checked.** The ticket defines its tests — as cases,
+never as test code — so that whoever builds it knows what to prove and the reviewer can
+match criterion to test. Do not promise who writes them or when: a builder that writes code
+and tests together (mason's producer does) satisfies the ticket as well as a separate one,
+and a promise the system does not keep misleads the reviewer (gate B in
 [REVIEW.md](../../feature-planning/REVIEW.md)). In a **Tests** section, give:
 
 - one or more **cases** per criterion, as Given / When / Then: the nominal path, the edges
@@ -207,14 +224,13 @@ agent that has seen nothing else.>
 - [ ] <Observable outcome> (S3)
 - [ ] <Cross-cutting outcome this ticket owes, if any>
 - [ ] <Documentation update written as drafted below, with its index entry> (DU1)
-- [ ] Each outcome above is covered by a case of Tests below, written before the code and
-      left unchanged by it.
+- [ ] Each outcome above is covered by a test that implements a case of Tests below, and
+      that test would fail without the change.
 - [ ] The project's own checks pass, none skipped or weakened.
 
 ## Tests
 
-Written first, by an agent that sees only this ticket; the code then makes them pass without
-editing them.
+The cases below are what the tests must prove; they are not edited to make the code pass.
 
 - **Interface under test**: <public function, endpoint or command: name, signature, inputs
   and outputs>

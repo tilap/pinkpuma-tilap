@@ -160,6 +160,20 @@ planning side relies on:
 
 ## Known limits
 
+- The feature branch is cut **once, when the feature opens** from the base branch. Anything
+  merged on the base afterwards is not seen by the tickets; merge prerequisites before
+  releasing.
+- Workspaces are installed when created. A line that gains a package after that fails its
+  checks until dependencies are installed again: configure an install step before the
+  gates.
+- Tickets run in parallel up to the project's parallelism setting. Tickets that change the
+  same shared files (schema, migrations, lockfile) must be chained by blockers or the
+  setting kept at 1; two parallel migrations get the same number.
+- Mason's producer writes a ticket's code and tests together; do not promise tests written
+  first by another agent.
+- Several agents starting at once can race on a shared dependency cache; keep parallelism
+  at 1 or warm the cache before the first run.
+
 - Only `done` in the system's ledger unblocks a dependency.
 - A feature none of whose tickets landed escalates; one that lost some lands without them.
 - The flow has run for real on one feature of one ticket; chains of blockers, two features in

@@ -58,7 +58,7 @@ When it does, by the spec's feature-test decision:
 
 Show, in one list: each ticket with the labels to add (`priority:` only where the breakdown
 set one), the full feature-test Ticket draft or the opt-out, and the labels missing from the
-repository. Run the **release check** of [REVIEW.md](../../feature-planning/REVIEW.md), answering every item
+repository. Read the project's mason settings (`mason.config.yaml`) and check that the base branch holds every prerequisite the tickets name. Run the **release check** of [REVIEW.md](../../feature-planning/REVIEW.md), answering every item
 `pass` / `fail` / `n/a` with its evidence. Nothing is published before the user approves the
 exact content.
 
