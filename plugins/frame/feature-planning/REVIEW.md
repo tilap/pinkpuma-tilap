@@ -44,7 +44,10 @@ Run after the tickets are published and before any ready label is added.
    fail on the starting commit.
 7. **Green alone.** No ticket needs a later one to compile or pass its checks.
 8. **Order is enforced by blocks.** Every required order is a *blocked by* edge, not a
-   priority; no cycle.
+   priority; no cycle. Two tickets that change the same numbered or generated resource
+   (migrations and their journal, the lockfile, a generated index) are chained by blocks
+   too. *Evidence*: per shared resource, the tickets that change it and the chain between
+   them. *On fail*: add the blocking edge.
 9. **Cross-cutting concerns decided.** For each of: data migration, security and
    permissions, performance or limits, dependency changes, backward compatibility, and each
    cross-cutting standard the spec names (accessibility, design…) — either a ticket carries

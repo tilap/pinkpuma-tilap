@@ -61,6 +61,15 @@ orders tickets that are already ready and unblocked, so it cannot enforce anythi
 spike before routine work, say), and set it on those tickets alone. Leave every other ticket
 without a priority label: the default applies. When in doubt between the two, use a block.
 
+**Shared resources.** Tickets with no blocking edge may be built at any moment relative to
+each other, and two of them that change the same numbered or generated resource collide when
+they land: the second is cut before the first is merged and its change conflicts. List, for
+each ticket, the resources it will change that another ticket may also change: a database
+migration or its journal and snapshot, the lockfile, a generated index, a route table, a
+shared settings file. Chain the tickets that share one with blocking edges, even when
+nothing else orders them. Say in the ticket which resource it changes, so the agent that
+repairs a conflict knows what to regenerate.
+
 **Documentation updates.** Attach each draft from the spec to the ticket whose behaviour
 makes it true — never to a documentation-only ticket — in full, with a criterion that it is
 written. Every draft lands in exactly one ticket.

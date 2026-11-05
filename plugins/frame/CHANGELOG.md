@@ -4,6 +4,15 @@ All notable changes to this plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Changed
+
+- `to-tickets` and gate A (item 8) chain tickets that change the same numbered or generated
+  resource (migrations and their journal, the lockfile, a generated index) with blocking edges.
+  Two unrelated tickets that both generated migration `0006` conflicted at the fold and stopped
+  the feature.
+
 ## [0.2.0] - 2026-10-27
 
 ### Changed
