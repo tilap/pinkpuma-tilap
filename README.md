@@ -12,7 +12,7 @@ Every plugin ships as a single source shared by both tools — see
 
 | Plugin                           | Purpose                                                                                                       |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| [tilap](plugins/tilap)           | Session notes, a knowledge base, and a glossary of foreign-language expressions, through the notes MCP client |
+| [tilap](plugins/tilap)           | A knowledge base, a glossary of foreign-language expressions, and articles from videos, through the notes MCP |
 | [frame](plugins/frame)           | Frame a feature from options to published tickets: explore, grill, spec, tickets, mason release               |
 | [checkpoint](plugins/checkpoint) | Save in-progress work to a handoff document and resume it in another session                                  |
 
