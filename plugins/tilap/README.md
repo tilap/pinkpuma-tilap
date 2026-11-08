@@ -4,23 +4,17 @@
 /plugin install tilap --marketplace tilap/pinkpuma-tilap
 ```
 
-Session notes, a knowledge base of proven dev practices, and a private glossary of
-foreign-language expressions. Install it in the project where the work happened, not in
+A knowledge base of proven dev practices and a private glossary of foreign-language
+expressions. Install it in the project where the work happened, not in
 the site that stores them.
 
 ## Skills
 
 | Skill                                                | Use when                                 |
 | ---------------------------------------------------- | ---------------------------------------- |
-| [session-note](skills/session-note/SKILL.md)         | The user invokes `/tilap:session-note`   |
 | [knowledge](skills/knowledge/SKILL.md)               | The user invokes `/tilap:knowledge`      |
 | [knowledge-search](skills/knowledge-search/SKILL.md) | Before designing or implementing a topic |
 | [lang](skills/lang/SKILL.md)                         | The user invokes `/tilap:lang`           |
-
-`session-note` runs only when invoked. It writes one note (`log`, `recipe`, `pitfall`, or `decision`) through
-`create_session_note` and stops. The kind is the first tag, because the server has no
-kind field. The same chat updates that note with `update_session_note`. It does not
-create a file.
 
 `knowledge` runs only when invoked. It checks the index with `list_knowledge`, then writes one
 entry (`create_knowledge`, or `update_knowledge` when one already covers the decision). New
@@ -46,4 +40,4 @@ plugin.
 | Claude Code | The plugin's configuration dialog (`notes_url`, `notes_token`) | `.mcp.json` |
 | Cursor      | Plugins → Configure (`NOTES_URL`, `NOTES_TOKEN`)               | `mcp.json`  |
 
-A `read_only` token can search and read. Capturing a note needs `full_access`.
+A `read_only` token can search and read. Storing an entry or an expression needs `full_access`.

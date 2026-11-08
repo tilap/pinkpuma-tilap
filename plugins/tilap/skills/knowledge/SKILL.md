@@ -17,8 +17,8 @@ server this plugin ships. Do not create a file or a second entry for the same to
 
 ## Tools
 
-The server is the OrangeMonkey site (`/api/mcp`). It also exposes blog and session-note
-tools. Ignore those. For knowledge, use only:
+The server is the OrangeMonkey site (`/api/mcp`). It also exposes blog, video and
+expression tools. Ignore those. For knowledge, use only:
 
 - `list_knowledge`
 - `get_knowledge`

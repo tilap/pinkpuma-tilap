@@ -14,6 +14,8 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Removed
 
+- `session-note` skill and `/tilap:session-note`: the site no longer has session notes (their MCP tools
+  `create_session_note` and `update_session_note` are gone).
 - `explore`, `grill`, `to-spec`, `to-tickets`, `to-mason`, and `/tilap:plan` now live in
   the `frame` plugin. The unreleased planning notes that were here moved with them; see
   `plugins/frame/CHANGELOG.md`.

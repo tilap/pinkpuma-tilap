@@ -17,7 +17,7 @@ the user did not ask to keep.
 
 ## Tools
 
-The server is the OrangeMonkey site (`/api/mcp`). It also exposes blog, session-note
+The server is the OrangeMonkey site (`/api/mcp`). It also exposes blog, video
 and knowledge tools. Ignore those. For an expression, use only:
 
 - `list_expressions`
