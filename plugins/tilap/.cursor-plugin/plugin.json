@@ -1,6 +1,6 @@
 {
   "name": "tilap",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A knowledge base of proven dev practices, a private glossary of foreign-language expressions, and articles written from the collected videos, through the bundled notes MCP client.",
   "author": {
     "name": "Julien La Vinh"
