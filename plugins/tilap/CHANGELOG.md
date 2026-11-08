@@ -8,6 +8,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- `video-article` skill: writes a blog article from one collected video through the notes MCP
+  (`list_imports`, `get_import`, `get_writing_guides`, `create_post` with `importId`) and saves it as a
+  draft linked to the video (`/tilap:video-article`). It does not auto-invoke.
 - `lang` skill: stores one foreign-language phrase and its French translation in
   the private glossary through the notes MCP (`/tilap:lang`). It checks
   `list_expressions` first and does not auto-invoke.

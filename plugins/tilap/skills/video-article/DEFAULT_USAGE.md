@@ -1,0 +1,1 @@
+- **Articles from videos.** If the `video-article` skill is available, use it only when the user invokes `/tilap:video-article` to write a blog article from one of their collected videos, through the notes MCP, and save it as a draft linked to the video. It does not create a file.
