@@ -24,6 +24,8 @@ One repository, one marketplace, several plugins:
 │       ├── .mcp.json                    # only when the plugin ships an MCP client (Claude Code)
 │       ├── mcp.json                     # only when the plugin ships an MCP client (Cursor)
 │       └── README.md                    # what the plugin does, one line per skill/agent
+├── scripts/check.mjs             # repository checks, run by CI
+├── .github/workflows/check.yml   # CI: the checks and strict validation of every plugin
 └── README.md
 ```
 
@@ -215,6 +217,14 @@ None of these check house style on their own (frontmatter completeness, naming
 consistency across plugins, description quality). Where that matters, write a small,
 deterministic, stdlib-only checker script rather than an LLM-based one — it costs nothing
 to run and catches drift mechanically.
+
+`scripts/check.mjs` is that script for this repository: matching manifests, every plugin
+registered in `marketplace.json` and the README, a CHANGELOG heading for the manifest
+version, valid relative links and `${CLAUDE_PLUGIN_ROOT}` paths in Markdown, and the
+one-bullet shape of each `DEFAULT_USAGE.md`. Run it with `node scripts/check.mjs`. The
+`check` workflow (`.github/workflows/check.yml`) runs it, then `claude plugin validate
+--strict` on every plugin, on each pull request and each push to `main`. Add a new
+mechanical rule to the script, not to a review habit.
 
 ## Distribution
 
