@@ -17,9 +17,14 @@ tickets. Install it in the project where the feature will be built.
 | [to-tickets](skills/to-tickets/SKILL.md) | The user invokes `/frame:to-tickets` |
 | [to-mason](skills/to-mason/SKILL.md)     | The user invokes `/frame:to-mason`   |
 
-| Command                  | Use when                                                                                              |
-| ------------------------ | ----------------------------------------------------------------------------------------------------- |
-| [plan](commands/plan.md) | The user types `/frame:plan <idea>`: grill, to-spec, to-tickets, then to-mason if the project uses it |
+| Command                    | Use when                                                                                                                                 |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| [plan](commands/plan.md)   | The user types `/frame:plan <idea>`: grill, to-spec, to-tickets, then to-mason if the project uses it                                    |
+| [chain](commands/chain.md) | The user types `/frame:chain <instructions>` after the grill: to-spec, to-tickets, then to-mason if the project uses it, with no stop in between |
+
+`chain` makes every choice itself: the run's instructions first, then the project's own docs
+and decisions, then the defaults written in the command. It never decides what the grill left
+open, and it releases the tickets only when the instructions say so.
 
 `explore` reads the repo, labels current choices as choices, and proposes at least one
 option that leaves a prior choice. It does not edit files. It does not run on its own.

@@ -38,7 +38,9 @@ anyway, repeat the command to type; do not call the skill, and do not carry out 
 without it.
 
 Exception: when the `plan` command runs the steps, it moves on by itself once the person
-has confirmed, and a step's closing line about the command to type does not apply.
+has confirmed, and a step's closing line about the command to type does not apply. The
+`chain` command, typed after `grill`, runs `to-spec`, `to-tickets` and `to-mason` without
+asking in between, and a step's closing line does not apply there either.
 
 ## The three places
 
@@ -134,7 +136,10 @@ number as `ADR-NNNN` for the implementer, and match the project's own record for
 ## Publishing rules
 
 - **Nothing is published without the user's explicit approval of the exact content.** An
-  approval covers one action, once; it does not carry over to the next.
+  approval covers one action, once; it does not carry over to the next. Exception: typing
+  `chain` approves, for that run only, the spec, the tickets, the review sheet and the
+  labels the steps apply. It never approves the release to the development system unless
+  its instructions say so.
 - Search for overlapping existing items first; show any hit before creating.
 - Never close, retitle or rewrite an item the user did not ask you to change.
 - Apply a label only if it already exists; if it does not, ask before creating it.
