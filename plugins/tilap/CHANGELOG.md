@@ -4,6 +4,16 @@ All notable changes to this plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.5.0] - 2026-11-18
+
+### Added
+
+- `knowledge-review` skill and `/tilap:knowledge-review` command: re-check the facts of the oldest
+  active knowledge entries (versions, renamed or removed APIs, deprecated tools, changed defaults)
+  against official sources, report each as `current`, `needs-update` or `deprecate` with a source link
+  per claim, and write nothing until the owner approves that entry. Needs a notes site that returns
+  `verifiedAt` and filters `list_knowledge` with `notVerifiedSinceDays`.
+
 ## [0.4.0] - 2026-11-08
 
 ### Added

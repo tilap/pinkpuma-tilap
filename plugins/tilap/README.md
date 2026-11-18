@@ -14,6 +14,7 @@ the site that stores them.
 | ---------------------------------------------------- | ---------------------------------------- |
 | [knowledge](skills/knowledge/SKILL.md)               | The user invokes `/tilap:knowledge`      |
 | [knowledge-search](skills/knowledge-search/SKILL.md) | Before designing or implementing a topic |
+| [knowledge-review](skills/knowledge-review/SKILL.md) | The user invokes `/tilap:knowledge-review` |
 | [lang](skills/lang/SKILL.md)                         | The user invokes `/tilap:lang`           |
 | [video-article](skills/video-article/SKILL.md)       | The user invokes `/tilap:video-article`  |
 
@@ -24,6 +25,13 @@ entries stay `draft` until the user approves activating them.
 `knowledge-search` is the only skill that runs on its own. Before a design or implementation
 topic it calls `list_knowledge` then `get_knowledge`, applies the matching entries as the
 default, and flags a deviation instead of forcing the rule. It is read-only.
+
+`knowledge-review` runs only when invoked. It takes the oldest `active` entries not verified for 90 days
+(`list_knowledge` with `notVerifiedSinceDays`, at most 5 per run), checks their facts against official sources,
+and reports each as `current`, `needs-update` or `deprecate` with a source link per claim. A claim without a
+source is listed as unverified, never proposed. Nothing is written before the owner approves that entry; then
+`update_knowledge` sets the changes, `verifiedAt` and `status: active`. `/tilap:knowledge-review [slug | stack |
+--older-than <days>]` is the entry point. It does not create entries: gaps are only listed.
 
 `lang` runs only when invoked. It checks `list_expressions`, then stores one phrase
 and its French translation with `create_expression` (or `update_expression` when that

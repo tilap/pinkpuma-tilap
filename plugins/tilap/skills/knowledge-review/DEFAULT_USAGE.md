@@ -1,0 +1,1 @@
+- **Knowledge base.** If the `knowledge-review` skill is available, use it only when the user invokes `/tilap:knowledge-review` to check the facts of the oldest knowledge-base entries against official sources and propose updates for approval.
