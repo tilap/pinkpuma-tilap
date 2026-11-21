@@ -54,7 +54,7 @@ plugin from Cursor's plugin manager by pointing it at `plugins/<name>/`.
 ### Pinkpuma-deck
 
 ```sh
-npx @pinkpuma/deck add tilap/pinkpuma-tilap@tilap --ref tilap-v0.1.0
+npx @toolmesh/agent-deck add tilap/pinkpuma-tilap@tilap --ref tilap-v0.1.0
 ```
 
 ## Repository layout and contributing
