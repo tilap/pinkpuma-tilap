@@ -4,6 +4,16 @@ All notable changes to this plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.6.0] - 2026-11-23
+
+### Added
+
+- `report-issue` skill (`/tilap:report-issue`): turns a rough problem report into a GitHub issue on the right
+  repository with `gh`. The repository wins over the skill's defaults: its issue template, title prefix, labels,
+  issue type and language are used when it has them, English otherwise. It labels the issue `needs-triage`,
+  appends the user's words as an "Original report" section, and asks a question only when the report or the
+  repository cannot be determined. It does not auto-invoke and does not use the notes MCP.
+
 ## [0.5.0] - 2026-11-18
 
 ### Added
