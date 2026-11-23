@@ -16,6 +16,7 @@ the site that stores them.
 | [knowledge-search](skills/knowledge-search/SKILL.md) | Before designing or implementing a topic |
 | [knowledge-review](skills/knowledge-review/SKILL.md) | The user invokes `/tilap:knowledge-review` |
 | [lang](skills/lang/SKILL.md)                         | The user invokes `/tilap:lang`           |
+| [report-issue](skills/report-issue/SKILL.md)         | The user invokes `/tilap:report-issue`   |
 | [video-article](skills/video-article/SKILL.md)       | The user invokes `/tilap:video-article`  |
 
 `knowledge` runs only when invoked. It checks the index with `list_knowledge`, then writes one
@@ -36,6 +37,14 @@ source is listed as unverified, never proposed. Nothing is written before the ow
 `lang` runs only when invoked. It checks `list_expressions`, then stores one phrase
 and its French translation with `create_expression` (or `update_expression` when that
 phrase is already there). It does not create a file.
+
+`report-issue` runs only when invoked. It turns a rough problem report (a bug, a wrong export, a hunch) into a
+GitHub issue and returns the link. It resolves the repository (the one named, the current directory's, or a
+project in [repos.md](skills/report-issue/references/repos.md)), follows that repository's issue template, title
+prefix, labels and language when it has them, and writes in English otherwise. Under every template it adds an
+"Original report" section with the user's words, and it labels the issue `needs-triage`. It asks a question only
+when it cannot tell what the report is about or where it goes, does not preview or confirm, and needs `gh`
+authenticated. It does not use the notes MCP.
 
 `video-article` runs only when invoked. It reads one collected video (`list_imports`, `get_import`),
 applies the owner's writing guides (`get_writing_guides`), drafts the article with the owner from the
