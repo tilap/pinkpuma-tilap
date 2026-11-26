@@ -22,7 +22,8 @@ rather than inventing one.
 
 `grill`, `to-spec` and `to-tickets` know nothing of any development system. `to-mason` is the
 only skill that applies mason's labels and rules; a project built otherwise stops after
-`to-tickets`.
+`to-tickets`. GitHub tickets built in an agent session can then go to
+`/tilap:implement-github-issue`, a skill of the `tilap` plugin.
 
 Skip a step that buys nothing: a need small enough for one ticket can go from `grill`
 straight to `to-tickets`.

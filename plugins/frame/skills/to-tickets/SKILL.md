@@ -200,7 +200,9 @@ same conversation (Handing over to the next step, in the conventions):
 
 - the project is built by mason → `/frame:to-mason`, which applies the priorities and labels,
   adds the feature-test Ticket and releases the work;
-- any other system → no skill exists for it: say so, and leave the tickets as they are.
+- the tickets are on GitHub and are built in an agent session → `/tilap:implement-github-issue <feature>`,
+  when that skill is installed;
+- anything else → say that no skill covers it, and leave the tickets as they are.
 
 ## Ticket template
 

@@ -10,6 +10,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - `/frame:chain <instructions>`: after `grill`, runs `to-spec`, `to-tickets` and `to-mason` without stopping. It makes the choices itself (the run's instructions, then the project's docs and decisions, then built-in defaults), approves the publications for that run, and releases only when told to. `grill` and `plan` are unchanged.
 
+### Changed
+
+- `to-tickets`, the conventions and the README hand GitHub tickets built in an agent session over to
+  `/tilap:implement-github-issue`.
+
 ## [0.2.1] - 2026-11-02
 
 ### Changed

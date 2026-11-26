@@ -4,6 +4,14 @@ All notable changes to this plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Added
+
+- `implement-github-issue` skill (`/tilap:implement-github-issue`): implements a GitHub issue and its sub-issues with
+  one commit per sub-issue on a feature branch, delivered as one pull request. It keeps assignees, acceptance-criteria
+  checkboxes and project status up to date, and never merges the pull request or closes an issue by hand.
+
 ## [0.6.0] - 2026-11-23
 
 ### Added
