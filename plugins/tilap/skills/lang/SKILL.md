@@ -2,7 +2,7 @@
 name: lang
 description: >-
   Store one foreign-language expression and its French translation in the owner's
-  private glossary through this plugin's notes MCP. Use only when the user invokes
+  private glossary through this plugin's tilap-data MCP. Use only when the user invokes
   /tilap:lang.
 disable-model-invocation: true
 metadata:
@@ -12,7 +12,7 @@ metadata:
 # Lang
 
 Store one expression and stop. The glossary is private. The entry is stored by the
-`notes` MCP server this plugin ships. Do not create a file, and do not store a phrase
+`tilap-data` MCP server this plugin ships. Do not create a file, and do not store a phrase
 the user did not ask to keep.
 
 ## Tools
@@ -28,7 +28,7 @@ and knowledge tools. Ignore those. For an expression, use only:
 
 `create_expression` takes `lang`, `expression`, `translation`, and an optional `note`.
 `update_expression` takes `id` and any of those fields; omitted fields stay; `note: null`
-clears the note. If `create_expression` is absent, say the notes server is not
+clears the note. If `create_expression` is absent, say the tilap-data server is not
 connected, or that the token is read-only, and stop. Do not fall back to a local file.
 
 ## The entry

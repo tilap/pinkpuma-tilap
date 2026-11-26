@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "notes": {
+    "tilap-data": {
       "url": "${NOTES_URL}",
       "headers": {
         "Authorization": "Bearer ${NOTES_TOKEN}"

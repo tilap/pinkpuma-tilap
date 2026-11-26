@@ -4,13 +4,22 @@ All notable changes to this plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [Unreleased]
+## [0.7.0] - 2026-11-26
 
 ### Added
 
 - `implement-github-issue` skill (`/tilap:implement-github-issue`): implements a GitHub issue and its sub-issues with
   one commit per sub-issue on a feature branch, delivered as one pull request. It keeps assignees, acceptance-criteria
   checkboxes and project status up to date, and never merges the pull request or closes an issue by hand.
+- MIT license, plugin icon, and [privacy policy](PRIVACY.md).
+
+### Changed
+
+- The bundled MCP client is renamed from `notes` to `tilap-data`. Skills that call it use the new name. A permission rule that names a `mcp__plugin_tilap_notes__*` tool no longer matches: the tools are `mcp__plugin_tilap_tilap-data__*`. The `notes_url` and `notes_token` settings keep their names.
+
+### Removed
+
+- `video-article` skill and `/tilap:video-article`.
 
 ## [0.6.0] - 2026-11-23
 

@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "notes": {
+    "tilap-data": {
       "type": "http",
       "url": "${user_config.notes_url}",
       "headers": {
