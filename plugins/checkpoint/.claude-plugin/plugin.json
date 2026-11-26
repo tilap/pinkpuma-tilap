@@ -1,8 +1,9 @@
 {
   "name": "checkpoint",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Save in-progress work to a handoff document and resume it in another session.",
   "author": {
     "name": "Julien La Vinh"
-  }
+  },
+  "license": "MIT"
 }
