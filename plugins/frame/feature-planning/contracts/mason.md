@@ -150,9 +150,9 @@ person merging runs them by hand, with the review sheet commented on the feature
 planning side relies on:
 
 - The reviewer of a ticket has the ticket body, which therefore carries its "Done when",
-  "Tests", "How to check", "Out of scope" and "If unsure" sections. The system may write
-  the tests from "Tests" before the code, so that section names the interface under test and
-  gives its cases; a ticket with nothing to test first says `Tests: none` and why.
+  "Tests", "How to check", "Out of scope" and "If unsure" sections. "Tests" names the
+  interface under test and gives its cases, for the producer, who writes the tests with the
+  code, and for the reviewer; a ticket with nothing to test says `Tests: none` and why.
 - A ticket that is unclear should stop and escalate, then resume with `to-resume`, rather
   than guess.
 - The final pull request needs a run of the acceptance scenarios on `feature/<id>` and the
