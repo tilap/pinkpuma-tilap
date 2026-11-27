@@ -93,48 +93,10 @@ ignored; if the list must change, tell the user rather than adding.
 
 ## feature-test Ticket template
 
-```markdown
-## Context
+Use [feature-test-ticket.md](../../feature-planning/feature-test-ticket.md), and add what
+mason reads:
 
-The feature tests of this feature. They prove, once, on the assembled feature, what the
-scenarios below say it does. The feature is built when this ticket runs.
-
-## What to build
-
-Tests for the scenarios below, each at the level the scenario names (a service, a route, a
-page), and nothing else.
-
-## Scenarios
-
-<The spec's acceptance scenarios, copied verbatim, with their ids S1, S2, …>
-
-<Scenarios left out, with the reason, when the spec names any.>
-
-<When a scenario signs in: a test account exists for it.>
-
-## Done when
-
-- [ ] Each scenario above has at least one test whose name contains its id.
-- [ ] `feature-tests/scenarios.json` lists exactly the scenario ids above.
-- [ ] Only tests and `feature-tests/scenarios.json` were changed.
-- [ ] The tests pass against the built feature.
-
-## Constraints
-
-- Write tests and `feature-tests/scenarios.json` only; update an existing test only where
-  a scenario above changes it.
-- Do not touch application code.
-- Run the tests against the built feature as you go.
-- A test that fails because the feature does not do what its scenario says is not fixed by
-  weakening the test or changing the application: stop and say what the feature does
-  instead.
-
-## If unsure
-
-Stop and say what is unclear or what the repository lacks (a test account, say). Do not
-choose an interpretation.
-
-## Out of scope
-
-- Everything that is not a test or the manifest.
-```
+- under **Done when**: "`feature-tests/scenarios.json` lists exactly the scenario ids
+  above.";
+- the files the ticket may change, in **Done when**, **Constraints** and **Out of scope**,
+  are the tests and `feature-tests/scenarios.json`.

@@ -22,6 +22,7 @@ One repository, one marketplace, several plugins:
 │       │   └── <agent-name>.md
 │       ├── commands/                    # only for thin entry points that run skills
 │       │   └── <command-name>.md
+│       ├── scripts/                     # only for helpers a skill runs; no dependency
 │       ├── .mcp.json                    # only when the plugin ships an MCP client (Claude Code)
 │       ├── mcp.json                     # only when the plugin ships an MCP client (Cursor)
 │       └── README.md                    # what the plugin does, one line per skill/agent
@@ -172,6 +173,8 @@ command that runs several skills in order.
   is blocked. Have the command read the skill's file (`${CLAUDE_PLUGIN_ROOT}/skills/<name>/SKILL.md`)
   and follow it, and give the command the same `disable-model-invocation: true`.
 - A command never approves anything for the person: the approvals written in the skills still apply.
+  The one entry point that runs unattended, the `frame:ship` skill, reads the other skills' files in
+  the same way and lists every approval it takes over and every stop it keeps.
 - Commands are a Claude Code feature. Cursor's handling of `commands/` is not confirmed, so check
   it before relying on a command there.
 

@@ -21,8 +21,7 @@ file and following it exactly as written, not by calling it by name:
 1. **Grill** — [skills/grill/SKILL.md](${CLAUDE_PLUGIN_ROOT}/skills/grill/SKILL.md).
    Interview until the understanding is agreed.
 2. **To spec** — [skills/to-spec/SKILL.md](${CLAUDE_PLUGIN_ROOT}/skills/to-spec/SKILL.md).
-   Write and publish the feature spec. Skip it when the grill concluded that the need fits a
-   single ticket.
+   Write and publish the feature spec. Skip it when the need fits a single ticket.
 3. **To tickets** — [skills/to-tickets/SKILL.md](${CLAUDE_PLUGIN_ROOT}/skills/to-tickets/SKILL.md).
    Slice the spec and publish the tickets.
 4. **To mason** — [skills/to-mason/SKILL.md](${CLAUDE_PLUGIN_ROOT}/skills/to-mason/SKILL.md).

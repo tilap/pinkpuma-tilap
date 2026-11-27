@@ -1,7 +1,7 @@
 {
   "name": "tilap",
   "version": "0.7.0",
-  "description": "A knowledge base of proven dev practices and a private glossary of foreign-language expressions, through the bundled tilap-data MCP client, plus GitHub issue reporting and implementation.",
+  "description": "A knowledge base of proven dev practices and a private glossary of foreign-language expressions, through the bundled tilap-data MCP client, plus GitHub issue reporting.",
   "author": {
     "name": "Julien La Vinh"
   },

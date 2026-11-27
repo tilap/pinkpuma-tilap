@@ -8,12 +8,12 @@
     {
       "name": "tilap",
       "source": "./plugins/tilap",
-      "description": "A knowledge base of proven dev practices and a private glossary of foreign-language expressions, through the bundled tilap-data MCP client, plus GitHub issue reporting and implementation."
+      "description": "A knowledge base of proven dev practices and a private glossary of foreign-language expressions, through the bundled tilap-data MCP client, plus GitHub issue reporting."
     },
     {
       "name": "frame",
       "source": "./plugins/frame",
-      "description": "Frame a feature from options to published tickets: explore, grill, spec, tickets, and mason release."
+      "description": "Take a feature from options to a pull request: explore, grill, spec, tickets, ship, implement, and mason release."
     },
     {
       "name": "checkpoint",

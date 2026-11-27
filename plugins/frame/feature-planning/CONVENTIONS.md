@@ -1,11 +1,12 @@
 # Feature planning conventions
 
-Shared by every skill in this plugin. Read this once; each `SKILL.md` links back here
-instead of repeating it.
+Shared by the planning skills of this plugin (`grill`, `to-spec`, `to-tickets`,
+`to-mason`). Read this once; each `SKILL.md` links back here instead of repeating it.
 
 ## The chain
 
 ```
+grill  →  the person puts the final record in a GitHub issue  →  ship  →  pull request
 grill  →  to-spec  →  to-tickets  →  to-mason  →  (development)
 ```
 
@@ -15,15 +16,20 @@ grill  →  to-spec  →  to-tickets  →  to-mason  →  (development)
 | `to-spec`    | No       | A rich feature spec, published                               | The feature board  |
 | `to-tickets` | No       | Self-contained, dependency-linked tickets, published         | The ticket tracker |
 | `to-mason`   | No       | Labels, the feature-test Ticket, then the release (optional) | The ticket tracker |
+| `ship`       | No       | Tickets, code and the pull request of one grilled issue      | GitHub             |
+| `implement`  | No       | Code and the pull request of an issue and its sub-issues     | GitHub             |
 
-Only `grill` makes decisions. `to-spec` and `to-tickets` record and slice what was already
-decided: if they need a decision nobody made, they stop and send the user back to `grill`
-rather than inventing one.
+Only `grill` makes decisions on the need. The others record, slice and build what was
+decided: if they need a decision nobody made, they stop and ask for it rather than
+inventing one.
 
 `grill`, `to-spec` and `to-tickets` know nothing of any development system. `to-mason` is the
 only skill that applies mason's labels and rules; a project built otherwise stops after
-`to-tickets`. GitHub tickets built in an agent session can then go to
-`/tilap:implement-github-issue`, a skill of the `tilap` plugin.
+`to-tickets`, and its GitHub tickets can go to `/frame:implement`.
+
+`ship` is the unattended path from a grilled GitHub issue to its pull request. It drafts the
+tickets by following `to-tickets` and builds them by following `implement`; what it takes
+over from them is written in its own file.
 
 Skip a step that buys nothing: a need small enough for one ticket can go from `grill`
 straight to `to-tickets`.
@@ -32,16 +38,16 @@ straight to `to-tickets`.
 
 The skills run only when the person types their command (`/frame:grill`,
 `/frame:to-spec`, `/frame:to-tickets`, `/frame:to-mason`): the host refuses a call made by
-the model. So a step never starts the next one. It ends by saying which command to type,
-in this same conversation so that what was agreed stays in context, and it does not ask a
-question such as "shall we go on?" that it could not honour. If the person answers yes
-anyway, repeat the command to type; do not call the skill, and do not carry out its workflow
-without it.
+the model. So a step never starts the next one. `grill` proposes no next step: what follows
+it depends on the case, and the person chooses. `to-spec` and `to-tickets` end by saying
+which command to type, in this same conversation so that what was agreed stays in context,
+and do not ask a question such as "shall we go on?" that they could not honour. If the
+person answers yes anyway, repeat the command to type; do not call the skill, and do not
+carry out its workflow without it.
 
 Exception: when the `plan` command runs the steps, it moves on by itself once the person
-has confirmed, and a step's closing line about the command to type does not apply. The
-`chain` command, typed after `grill`, runs `to-spec`, `to-tickets` and `to-mason` without
-asking in between, and a step's closing line does not apply there either.
+has confirmed, and a step's closing line about the command to type does not apply. It does
+not apply under `ship` either.
 
 ## The three places
 
@@ -88,7 +94,7 @@ add it to REVIEW.md, phrased as a question with its evidence.
 
 ## Nothing is written to the repository or to disk
 
-These skills prepare work; they never do it. They create no file anywhere — not in the
+The planning skills prepare work; they never do it. They create no file anywhere — not in the
 repository, not under `docs/`, not in `.git/`, not as a scratch copy. Working state lives
 in the conversation; durable state lives in the board and the tracker.
 
@@ -138,9 +144,7 @@ number as `ADR-NNNN` for the implementer, and match the project's own record for
 
 - **Nothing is published without the user's explicit approval of the exact content.** An
   approval covers one action, once; it does not carry over to the next. Exception: typing
-  `chain` approves, for that run only, the spec, the tickets, the review sheet and the
-  labels the steps apply. It never approves the release to the development system unless
-  its instructions say so.
+  `ship` approves, for that run, what its file lists.
 - Search for overlapping existing items first; show any hit before creating.
 - Never close, retitle or rewrite an item the user did not ask you to change.
 - Apply a label only if it already exists; if it does not, ask before creating it.

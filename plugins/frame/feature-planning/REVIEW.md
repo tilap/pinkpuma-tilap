@@ -1,21 +1,22 @@
 # Review gates
 
 Three checkpoints between an idea and merged code. Each is a **checklist written for a
-reviewer, not for a specific one**: today a person runs it, later an agent can run the
-same list unchanged. So every item is a yes/no question, names the **evidence** that
-answers it, and says what a "no" triggers. Nothing here asks the reviewer to "use
+reviewer, not for a specific one**: a person or an agent runs the same list unchanged. So
+every item is a yes/no question, names the **evidence** that answers it, and says what a
+"no" triggers. Nothing here asks the reviewer to "use
 judgement" without saying on what.
 
-The plugin runs gate A (it plans) and, for mason, the release check. Gates B and C are carried out downstream, on the
-pull requests the development system opens; the plugin prepares their inputs so the
-reviewer has everything at hand: criteria that can fail in the tickets, and a review sheet
-on the feature.
+The plugin runs gate A (it plans) and, for mason, the release check. `implement` has gate C
+run by a fresh agent before it opens the pull request, and reviews each ticket against its
+criteria. With mason, gates B and C are carried out downstream, on the pull requests the
+system opens; the plugin prepares their inputs so the reviewer has everything at hand:
+criteria that can fail in the tickets, and a review sheet on the feature.
 
-| Gate           | When                                                | Reviewer sees                                           | Run by                        |
-| -------------- | --------------------------------------------------- | ------------------------------------------------------- | ----------------------------- |
-| **A. Plan**    | Before the tickets are released                     | Spec, tickets as published, review sheet                | the person, with `to-tickets` |
-| **B. Ticket**  | Each ticket's pull request, into the feature branch | The ticket body, the diff, the check results            | downstream                    |
-| **C. Feature** | The final pull request                              | The feature body, the review sheet, the cumulative diff | downstream                    |
+| Gate           | When                                                | Reviewer sees                                           | Run by                                                    |
+| -------------- | --------------------------------------------------- | ------------------------------------------------------- | --------------------------------------------------------- |
+| **A. Plan**    | Before the tickets are released                     | Spec, tickets as published, review sheet                | the person, with `to-tickets`; a fresh agent, with `ship` |
+| **B. Ticket**  | Each ticket's pull request, into the feature branch | The ticket body, the diff, the check results            | downstream                                                |
+| **C. Feature** | The final pull request                              | The feature body, the review sheet, the cumulative diff | downstream, or `implement`                                |
 
 ## How to report
 
@@ -48,7 +49,7 @@ Run after the tickets are published and before any ready label is added.
 9. **Cross-cutting concerns decided.** For each of: data migration, security and
    permissions, performance or limits, dependency changes, backward compatibility, and each
    cross-cutting standard the spec names (accessibility, design…) — either a ticket carries
-   an outcome for it, or the spec's Out of scope says why not.
+   an outcome for it, or the spec says it is not concerned and why.
 10. **No decision hidden in a ticket.** Nothing in a ticket body answers a question the
     spec lists as open.
 11. **Tickets are readable.** Each ticket has a title and a body, is a sub-issue of the feature

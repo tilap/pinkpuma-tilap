@@ -6,6 +6,29 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added
+
+- `ship` skill (`/frame:ship <issue>`): takes a GitHub issue that holds the grill's final record to an
+  open pull request without confirmation. It drafts the tickets, has a fresh agent review the plan,
+  publishes them as sub-issues, builds them, and resumes from GitHub when run again.
+- `implement` skill (`/frame:implement`), moved from `tilap:implement-github-issue`. A fresh agent
+  reviews the assembled feature (gate C) before the pull request, a failing feature test is fixed in the
+  application, and the plugin's own comments are marked and never read as specification.
+
+- Run report: `ship` and `implement` post on the issue the time and tokens of the run by step and
+  agent, and its notable difficulties, in a fixed format (`feature-planning/METRICS.md`).
+  Token counts come from `scripts/tokens.py`, which reads Claude Code's session journals.
+
+### Changed
+
+- `grill` ends with a final record that stands on its own, under fixed headings, and proposes no next
+  step.
+- The feature-test ticket template is shared in `feature-planning/feature-test-ticket.md`.
+
+### Removed
+
+- `/frame:chain`: `/frame:ship` replaces it.
+
 ## [0.3.0] - 2026-11-26
 
 ### Added

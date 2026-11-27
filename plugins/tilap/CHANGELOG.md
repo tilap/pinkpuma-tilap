@@ -4,6 +4,12 @@ All notable changes to this plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Removed
+
+- `implement-github-issue` skill: it is `/frame:implement`, in the `frame` plugin.
+
 ## [0.7.0] - 2026-11-26
 
 ### Added

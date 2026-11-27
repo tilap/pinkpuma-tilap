@@ -105,14 +105,34 @@ history. Propose a documentation update (decision record, business rule) when it
 ## Step 5 — Close
 
 The interview is done when the frontier is empty: every branch visited, nothing silently
-assumed, open questions empty or explicitly deferred by the user. Then:
+assumed, open questions empty or explicitly deferred by the user. Then show the **final
+record** (below) and ask the user to confirm it matches their understanding. The interview
+ends there: propose no next step.
 
-1. Show the final **Settled so far** and ask the user to confirm it matches their
-   understanding.
-2. Size the need and end with exactly one next step, as the conventions say (Handing over
-   to the next step): tell the person which command to type, in this same conversation:
-   - fits a single ticket → `/frame:to-tickets`;
-   - larger → `/frame:to-spec`.
+## Final record
 
-Do not start the next step yourself, and do not ask whether to go on: you cannot start it, so
-the person has to type the command.
+One block that stands on its own: a reader who has only this block can build the need. It
+restates everything settled, with no reference to the conversation, and names no tool. Give
+it in a fenced Markdown block, so it can be copied as is, with every heading below, in this
+order. A heading with nothing under it says "None" or "Not concerned", never disappears.
+
+```markdown
+## Problem and outcome
+## Actors
+## Decisions
+## Business rules
+## Scenarios
+## Feature tests
+## Cross-cutting
+## Documentation updates
+## Out of scope
+## Open questions
+```
+
+- **Decisions**, **Business rules** and **Scenarios** keep their identifiers (`D1`, `R1`,
+  `S1`) and wording.
+- **Feature tests**: the boundaries where behaviour is observed, then all scenarios, all but
+  the named ones with the reason, or the skip with its reason.
+- **Cross-cutting**: one line per concern of level 8, each with its decision.
+- **Documentation updates**: each draft in full, numbered `DU1`, `DU2`, …
+- **Open questions**: "None", or only the questions the user deferred.

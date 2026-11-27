@@ -5,19 +5,18 @@
 ```
 
 A knowledge base of proven dev practices, a private glossary of foreign-language
-expressions, and GitHub issues to report and implement. Install it in the project where the
+expressions, and GitHub issues to report. Install it in the project where the
 work happens, not in the site that stores the knowledge base.
 
 ## Skills
 
-| Skill                                                            | Use when                                         |
-| ---------------------------------------------------------------- | ------------------------------------------------ |
-| [knowledge](skills/knowledge/SKILL.md)                           | The user invokes `/tilap:knowledge`              |
-| [knowledge-search](skills/knowledge-search/SKILL.md)             | Before designing or implementing a topic         |
-| [knowledge-review](skills/knowledge-review/SKILL.md)             | The user invokes `/tilap:knowledge-review`       |
-| [lang](skills/lang/SKILL.md)                                     | The user invokes `/tilap:lang`                   |
-| [report-issue](skills/report-issue/SKILL.md)                     | The user invokes `/tilap:report-issue`           |
-| [implement-github-issue](skills/implement-github-issue/SKILL.md) | The user invokes `/tilap:implement-github-issue` |
+| Skill                                                | Use when                                   |
+| ---------------------------------------------------- | ------------------------------------------ |
+| [knowledge](skills/knowledge/SKILL.md)               | The user invokes `/tilap:knowledge`        |
+| [knowledge-search](skills/knowledge-search/SKILL.md) | Before designing or implementing a topic   |
+| [knowledge-review](skills/knowledge-review/SKILL.md) | The user invokes `/tilap:knowledge-review` |
+| [lang](skills/lang/SKILL.md)                         | The user invokes `/tilap:lang`             |
+| [report-issue](skills/report-issue/SKILL.md)         | The user invokes `/tilap:report-issue`     |
 
 `knowledge` runs only when invoked. It checks the index with `list_knowledge`, then writes one
 entry (`create_knowledge`, or `update_knowledge` when one already covers the decision). New
@@ -45,17 +44,6 @@ prefix, labels and language when it has them, and writes in English otherwise. U
 "Original report" section with the user's words, and it labels the issue `needs-triage`. It asks a question only
 when it cannot tell what the report is about or where it goes, does not preview or confirm, and needs `gh`
 authenticated. It does not use the tilap-data MCP.
-
-`implement-github-issue` runs only when invoked, with an issue URL or number. That issue is the feature and its
-sub-issues are the tickets. It gives each ticket one commit on a feature branch and opens one pull request that a
-person merges. With several tickets it delegates the code to sub-agents, on a less costly model for routine ones when
-the host allows it, reviews each diff and runs the ticket's tests before merging it. The whole suite runs before the
-first ticket, to know what already fails, and again at the end. It never weakens or skips a test to get it to pass, and
-stops after two CI fixes that leave a check red. Run again, it resumes the earlier work.
-Along the way it assigns the issues, ticks the verified acceptance criteria, moves the project status when there is
-one ("in progress", then "in review"), and comments only for a blocker or a deviation. It treats as specification
-only what owners, members and collaborators of the repository wrote. It needs `gh` authenticated with the `project`
-scope and write access to the repository. It does not use the tilap-data MCP.
 
 ## MCP client
 
