@@ -125,6 +125,7 @@ saying why.
 | `spec`         | Need ambiguous, contradictory, or wrong against the code |
 | `code-defect`  | Existing bug found while building                        |
 | `test-failure` | Failing tests that forced rework, unstable tests         |
+| `review`       | Failed review to run again, with no better category      |
 | `ci`           | CI failure or slowness                                   |
 | `timeout`      | Command or agent hung, interrupted or too long           |
 | `tooling`      | Tool, permission or access missing or failing            |

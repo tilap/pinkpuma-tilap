@@ -124,9 +124,10 @@ Only you write to GitHub. Write when the event happens, then read back to confir
 - Have a sub-agent that saw none of the implementation answer every item of **gate C** of
   [REVIEW.md](../../feature-planning/REVIEW.md). Give it the specification as filtered in
   § 2, the review sheet when the feature has one, and the feature branch; it changes
-  nothing. Fix each `fail` and have a new one review again, three rounds at most. A `fail`
-  that remains makes the feature incomplete: report a blocker (§ 6). Run the gate yourself
-  when the host cannot start a sub-agent.
+  nothing. Fix each `fail` and have a new one review again. The gate gets four reviews in
+  all: the first counts, and so does one limited to a correction. A `fail` that remains
+  after the fourth makes the feature incomplete: report a blocker (§ 6). Run the gate
+  yourself when the host cannot start a sub-agent.
 - Before the first push, fold a fix into the commit of the ticket it belongs to. After it,
   add a new commit that references the ticket.
 - Push the feature branch and open one pull request to the default branch: what changes, how

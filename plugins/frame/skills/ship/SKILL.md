@@ -92,8 +92,9 @@ one.
 Then have **a sub-agent that saw none of the drafting** run gate A of
 [REVIEW.md](../../feature-planning/REVIEW.md). Give it the specification, the draft tickets
 with their blockers and the matrix; it reads the repository and changes nothing. Item 11 is
-judged on the drafts. Fix each `fail` and have a new one review again, three rounds at most.
-A `fail` that remains is a stop. Run the gate yourself when the host cannot start a
+judged on the drafts. Fix each `fail` and have a new one review again. The gate gets four
+reviews in all: the first counts, and so does one limited to a correction. A `fail` that
+remains after the fourth is a stop. Run the gate yourself when the host cannot start a
 sub-agent.
 
 Where `to-tickets` waits for the person, this applies instead:

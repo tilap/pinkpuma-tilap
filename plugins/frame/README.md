@@ -11,8 +11,10 @@ tickets and build them. Install it in the project where the feature is built.
 
 1. Type `/frame:grill` and answer until the need is settled.
 2. Put its final record in a GitHub issue.
-3. Type `/frame:ship <issue url>`.
-4. Review and merge the pull request.
+3. Open a new session: the interview left in the context is read again at every request of
+   the run.
+4. Type `/frame:ship <issue url>`.
+5. Review and merge the pull request.
 
 `ship` checks the access, the repository and the issue, drafts the tickets, has a fresh
 agent review the plan, publishes them as sub-issues, then builds them: one agent per ticket,
