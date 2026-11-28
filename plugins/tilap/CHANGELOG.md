@@ -9,6 +9,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Removed
 
 - `implement-github-issue` skill: it is `/frame:implement`, in the `frame` plugin.
+- `report-issue` skill and `/tilap:report-issue`.
 
 ## [0.7.0] - 2026-11-26
 

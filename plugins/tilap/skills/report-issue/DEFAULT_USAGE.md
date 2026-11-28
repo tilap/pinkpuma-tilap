@@ -1,1 +1,0 @@
-- **GitHub issues.** If the `report-issue` skill is available, use it only when the user invokes `/tilap:report-issue` to turn a rough problem report into a GitHub issue on the right repository, in that repository's own template and language (English by default) and labelled `needs-triage`.
