@@ -1,1 +1,0 @@
-- **GitHub issue implementation.** If the `implement-github-issue` skill is available, use it only when the user invokes `/tilap:implement-github-issue` to implement a GitHub issue and its sub-issues, one commit per sub-issue on a feature branch delivered as one pull request.
