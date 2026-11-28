@@ -6,6 +6,8 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-11-28
+
 ### Removed
 
 - `implement-github-issue` skill: it is `/frame:implement`, in the `frame` plugin.

@@ -6,6 +6,8 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-11-28
+
 ### Added
 
 - `ship` skill (`/frame:ship <issue>`): takes a GitHub issue that holds the grill's final record to an
