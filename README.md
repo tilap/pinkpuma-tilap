@@ -12,7 +12,7 @@ Every plugin ships as a single source shared by both tools — see
 
 | Plugin                           | Purpose                                                                                                                  |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| [tilap](plugins/tilap)           | A knowledge base and a glossary of foreign-language expressions, through the tilap-data MCP, plus GitHub issue reporting |
+| [tilap](plugins/tilap)           | A knowledge base and a glossary of foreign-language expressions, through the tilap-data MCP |
 | [frame](plugins/frame)           | Take a feature from options to a pull request: explore, grill, spec, tickets, ship, mason release                        |
 | [checkpoint](plugins/checkpoint) | Save in-progress work to a handoff document and resume it in another session                                             |
 
