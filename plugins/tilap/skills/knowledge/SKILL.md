@@ -2,7 +2,7 @@
 name: knowledge
 description: >-
   Add or update one entry in the owner's knowledge base (a proven dev practice or
-  recipe) through this plugin's notes MCP. Use only when the user invokes
+  recipe) through this plugin's tilap-data MCP. Use only when the user invokes
   /tilap:knowledge.
 disable-model-invocation: true
 metadata:
@@ -12,7 +12,7 @@ metadata:
 # Knowledge
 
 Write one knowledge entry and stop. An entry is one precise, reusable decision ("how we
-handle env vars in Next"), not a session log. The entry is stored by the `notes` MCP
+handle env vars in Next"), not a session log. The entry is stored by the `tilap-data` MCP
 server this plugin ships. Do not create a file or a second entry for the same topic.
 
 ## Tools
@@ -25,7 +25,7 @@ expression tools. Ignore those. For knowledge, use only:
 - `create_knowledge`
 - `update_knowledge`
 
-If `create_knowledge` is absent, say the notes server is not connected, or that the
+If `create_knowledge` is absent, say the tilap-data server is not connected, or that the
 token is read-only, and stop. Do not fall back to a local file.
 
 ## Source of the entry
@@ -52,19 +52,19 @@ If this chat already stored an entry, update that one. Remember its `slug`.
 Write in the language of the user's existing entries (check the index), otherwise the
 language of the session. One entry is one decision; split if the user gave two.
 
-| Field | Content |
-| --- | --- |
-| `title` | The topic, often a question. At most 200 characters. |
-| `summary` | One line: when and why to consult it. At most 300 characters. |
-| `appliesWhen` | The context where the rule holds. At most 500 characters. |
-| `notAppliesWhen` | Where it does not hold, or where to flag a deviation. Optional. |
-| `rule` | The method, short and imperative. Markdown. |
-| `rationale` | Why this method, what it avoids. Markdown. |
-| `alternatives` | What was discarded and why. Optional. |
-| `body` | Detail, examples, step by step. Optional. Keep the rule itself out of it. |
-| `stack` | Technologies with a reference version when it matters (`next@16`, `postgres`). Empty when agnostic. |
-| `tags` | Domain tags, lowercase slugs, at most 10. Reuse tags already in the index. |
-| `slug` | Lowercase slug. Omit to derive it from the title. Never changed afterward. |
+| Field            | Content                                                                                             |
+| ---------------- | --------------------------------------------------------------------------------------------------- |
+| `title`          | The topic, often a question. At most 200 characters.                                                |
+| `summary`        | One line: when and why to consult it. At most 300 characters.                                       |
+| `appliesWhen`    | The context where the rule holds. At most 500 characters.                                           |
+| `notAppliesWhen` | Where it does not hold, or where to flag a deviation. Optional.                                     |
+| `rule`           | The method, short and imperative. Markdown.                                                         |
+| `rationale`      | Why this method, what it avoids. Markdown.                                                          |
+| `alternatives`   | What was discarded and why. Optional.                                                               |
+| `body`           | Detail, examples, step by step. Optional. Keep the rule itself out of it.                           |
+| `stack`          | Technologies with a reference version when it matters (`next@16`, `postgres`). Empty when agnostic. |
+| `tags`           | Domain tags, lowercase slugs, at most 10. Reuse tags already in the index.                          |
+| `slug`           | Lowercase slug. Omit to derive it from the title. Never changed afterward.                          |
 
 Distill. Never write a key, token, password, or connection string with credentials; use
 `<redacted>`. The server does not scan for secrets.

@@ -20,8 +20,8 @@ jobs:
         run: node scripts/check.mjs
       - name: Install the Claude Code CLI
         run: npm install --global @anthropic-ai/claude-code
-      - name: Validate every plugin (strict)
+      - name: Validate every plugin (strict, directory checks)
         run: |
           for dir in plugins/*/; do
-            claude plugin validate --strict "./${dir%/}"
+            claude plugin validate --strict --profile directory "./${dir%/}"
           done

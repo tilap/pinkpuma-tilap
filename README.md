@@ -1,6 +1,6 @@
 # pinkpuma-tilap
 
-A private marketplace of [Claude Code](https://code.claude.com) and [Cursor](https://cursor.com)
+A marketplace of [Claude Code](https://code.claude.com) and [Cursor](https://cursor.com)
 plugins for personal work: daily tasks, one-off workflows, and tools that stay specific
 to how Julien works. Everyday shared dev conventions live in
 [pinkpuma-toolbelt](https://github.com/tilap/pinkpuma-toolbelt) instead.
@@ -10,11 +10,11 @@ Every plugin ships as a single source shared by both tools — see
 
 ## Plugins
 
-| Plugin                           | Purpose                                                                                                       |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| [tilap](plugins/tilap)           | A knowledge base, a glossary of foreign-language expressions, and articles from videos, through the notes MCP, plus GitHub issue reports |
-| [frame](plugins/frame)           | Frame a feature from options to published tickets: explore, grill, spec, tickets, mason release               |
-| [checkpoint](plugins/checkpoint) | Save in-progress work to a handoff document and resume it in another session                                  |
+| Plugin                           | Purpose                                                                                                                                     |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| [tilap](plugins/tilap)           | A knowledge base and a glossary of foreign-language expressions, through the tilap-data MCP, plus GitHub issue reporting and implementation |
+| [frame](plugins/frame)           | Frame a feature from options to published tickets: explore, grill, spec, tickets, mason release                                             |
+| [checkpoint](plugins/checkpoint) | Save in-progress work to a handoff document and resume it in another session                                                                |
 
 ## Install
 
@@ -41,20 +41,17 @@ claude plugin install frame@pinkpuma-tilap --scope project
 claude plugin install checkpoint@pinkpuma-tilap --scope project
 ```
 
-This repository is private: each machine (and each collaborator) needs `git` access to
-it, either an SSH key loaded in `ssh-agent` or a stored HTTPS credential (`gh auth login`
-followed by `gh auth setup-git` sets one up). Claude Code uses that access directly; it
-holds no credentials of its own.
+This repository is public: installing from it needs no collaborator access.
 
 ### Cursor
 
 Each plugin ships a `.cursor-plugin/plugin.json` beside its Claude Code manifest. Add a
 plugin from Cursor's plugin manager by pointing it at `plugins/<name>/`.
 
-### Pinkpuma-deck
+### agent-deck
 
 ```sh
-npx @toolmesh/agent-deck add tilap/pinkpuma-tilap@tilap --ref tilap-v0.1.0
+npx @toolmesh/agent-deck add tilap/pinkpuma-tilap@tilap
 ```
 
 ## Repository layout and contributing
@@ -63,3 +60,7 @@ See [HOWTO.md](HOWTO.md) for structure, the full **create / change / remove / re
 workflow (including developing against a local clone), and the compatibility rules that
 keep every plugin working on both Claude Code and Cursor. See [AGENTS.md](AGENTS.md) for
 the rules an AI agent must follow when working in this repository.
+
+## License
+
+[MIT](LICENSE) © 2026 Julien La Vinh

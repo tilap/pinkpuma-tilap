@@ -3,7 +3,7 @@ name: knowledge-search
 description: >-
   Before designing or implementing a technical topic (env vars, auth, data
   fetching, testing, deployment, project structure, ...), consult the owner's
-  knowledge base of proven dev practices through this plugin's notes MCP and apply
+  knowledge base of proven dev practices through this plugin's tilap-data MCP and apply
   the matching entries. Use at the start of a design or implementation task, and
   when the user asks how they usually do something.
 metadata:
@@ -18,7 +18,7 @@ This skill only reads. To add or change an entry, the user invokes `/tilap:knowl
 
 ## Tools
 
-Use only `list_knowledge` and `get_knowledge` on the `notes` MCP server. If they are
+Use only `list_knowledge` and `get_knowledge` on the `tilap-data` MCP server. If they are
 absent, the server is not connected: say so in one line and continue without the base.
 Do not guess what the base would say.
 

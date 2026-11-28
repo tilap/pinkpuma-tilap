@@ -1,22 +1,23 @@
 {
   "name": "tilap",
-  "version": "0.6.0",
-  "description": "A knowledge base of proven dev practices, a private glossary of foreign-language expressions, and articles written from the collected videos, through the bundled notes MCP client, plus rough problem reports filed as GitHub issues.",
+  "version": "0.7.0",
+  "description": "A knowledge base of proven dev practices and a private glossary of foreign-language expressions, through the bundled tilap-data MCP client, plus GitHub issue reporting and implementation.",
   "author": {
     "name": "Julien La Vinh"
   },
+  "license": "MIT",
   "mcpServers": "./mcp.json",
   "variables": {
     "type": "object",
     "properties": {
       "NOTES_URL": {
         "type": "string",
-        "title": "Notes MCP URL",
-        "description": "Full URL of the notes server, for example https://example.com/api/mcp"
+        "title": "tilap-data MCP URL",
+        "description": "Full URL of the tilap-data server, for example https://example.com/api/mcp"
       },
       "NOTES_TOKEN": {
         "type": "string",
-        "title": "Notes API token",
+        "title": "tilap-data API token",
         "description": "Bearer token (omk_...) with full access, created in the site back-office"
       }
     },

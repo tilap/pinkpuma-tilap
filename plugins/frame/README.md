@@ -34,6 +34,8 @@ It is not part of `/frame:plan`.
 tickets, one confirmed step at a time, and know nothing of any development system.
 `to-mason` then applies mason's labels, adds the feature-test Ticket and releases the work.
 `/frame:plan` chains them. They run only when typed.
+To build GitHub tickets in an agent session instead, type `/tilap:implement-github-issue <feature>`, a skill of the
+[tilap](../tilap) plugin.
 Their shared rules, review gates and tracker contracts are in
 [feature-planning/](feature-planning/): [CONVENTIONS.md](feature-planning/CONVENTIONS.md),
 [REVIEW.md](feature-planning/REVIEW.md), [contracts/](feature-planning/contracts/).

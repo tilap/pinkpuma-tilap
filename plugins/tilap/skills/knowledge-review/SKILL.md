@@ -19,11 +19,11 @@ never writes before the owner approves that entry.
 
 ## Tools
 
-Use the `notes` MCP server: `list_knowledge`, `get_knowledge`, `update_knowledge`, plus the
+Use the `tilap-data` MCP server: `list_knowledge`, `get_knowledge`, `update_knowledge`, plus the
 host's web search and page fetch tools. Ignore the blog, video and expression tools. Do not
 call `create_knowledge` or `delete_knowledge`.
 
-If `update_knowledge` is absent, say the notes server is not connected or the token is
+If `update_knowledge` is absent, say the tilap-data server is not connected or the token is
 read-only, and stop. If `list_knowledge` has no `notVerifiedSinceDays` filter, or its
 entries carry no `verifiedAt`, the site is not updated: say so in one line and stop.
 
@@ -65,11 +65,11 @@ becomes a proposed change.
 
 ## Classify
 
-| Class | Meaning |
-| --- | --- |
-| `current` | Every checkable claim holds. |
-| `needs-update` | At least one sourced fact is wrong or outdated, and the fix is a fact (a version, a name, a command). |
-| `deprecate` | The thing the entry is about is removed, abandoned, or replaced by its maintainers, so the rule can no longer be followed. |
+| Class          | Meaning                                                                                                                    |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `current`      | Every checkable claim holds.                                                                                               |
+| `needs-update` | At least one sourced fact is wrong or outdated, and the fix is a fact (a version, a name, a command).                      |
+| `deprecate`    | The thing the entry is about is removed, abandoned, or replaced by its maintainers, so the rule can no longer be followed. |
 
 ## Report
 

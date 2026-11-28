@@ -6,7 +6,7 @@ overview, see [README.md](README.md); for create / change / remove / release ste
 
 ## What this repo is
 
-A marketplace of Claude Code / Cursor plugins named **{{NAME}}** (owner: {{OWNER}}).
+A marketplace of Claude Code / Cursor plugins named **pinkpuma-tilap** (owner: Julien La Vinh).
 Each plugin lives in `plugins/<name>/` and is listed in `.claude-plugin/marketplace.json`.
 Every plugin follows the same layout — see [HOWTO.md](HOWTO.md) before creating or
 restructuring one.
@@ -14,14 +14,14 @@ restructuring one.
 ## Hard rules
 
 1. **Uniform plugin layout.** Every plugin has `.claude-plugin/plugin.json` and
-   `.cursor-plugin/plugin.json` with matching `name`, `version`, `description`, and
-   `author`, a `skills/` directory, and a `README.md`. Don't invent a one-off structure
-   without updating HOWTO.md.
+   `.cursor-plugin/plugin.json` with matching `name`, `version`, `description`,
+   `author`, and `license`, an icon at `.claude-plugin/icon.png`, a `skills/` directory,
+   and a `README.md`. Don't invent a one-off structure without updating HOWTO.md.
 
 2. **Validate before every commit that touches a plugin:**
 
    ```bash
-   claude plugin validate --strict ./plugins/<name>
+   claude plugin validate --strict --profile directory ./plugins/<name>
    ```
 
    Zero warnings, not just zero errors.
@@ -73,8 +73,8 @@ Bad (too vague once pasted into a consumer AGENTS.md):
 
 ## Definition of done for any change under `plugins/`
 
-- [ ] Dual manifests still match (`name`, `version`, `description`, `author`)
-- [ ] `claude plugin validate --strict` passes with no warnings for every plugin touched
+- [ ] Dual manifests still match (`name`, `version`, `description`, `author`, `license`)
+- [ ] `claude plugin validate --strict --profile directory` passes with no warnings for every plugin touched
 - [ ] `.claude-plugin/marketplace.json` and root README reflect any add/rename/remove
 - [ ] HOWTO.md updated if the change alters repo structure or conventions
 - [ ] Any new `DEFAULT_USAGE.md` is explicit enough for a global consumer AGENTS.md

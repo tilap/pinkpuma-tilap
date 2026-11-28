@@ -29,7 +29,7 @@ for (const name of pluginNames) {
   const dir = join(root, "plugins", name);
   const claude = readJson(join(dir, ".claude-plugin", "plugin.json"));
   const cursor = readJson(join(dir, ".cursor-plugin", "plugin.json"));
-  for (const field of ["name", "version", "description", "author"]) {
+  for (const field of ["name", "version", "description", "author", "license"]) {
     if (JSON.stringify(claude[field]) !== JSON.stringify(cursor[field])) {
       fail("manifests", `${name}: "${field}" differs between .claude-plugin and .cursor-plugin`);
     }

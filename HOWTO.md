@@ -14,6 +14,7 @@ One repository, one marketplace, several plugins:
 ├── plugins/
 │   └── <plugin-name>/
 │       ├── .claude-plugin/plugin.json   # Claude Code manifest
+│       ├── .claude-plugin/icon.png      # square PNG, 512 to 2048 px
 │       ├── .cursor-plugin/plugin.json   # Cursor manifest — same metadata, separate file
 │       ├── skills/
 │       │   └── <skill-name>/SKILL.md
@@ -26,6 +27,7 @@ One repository, one marketplace, several plugins:
 │       └── README.md                    # what the plugin does, one line per skill/agent
 ├── scripts/check.mjs             # repository checks, run by CI
 ├── .github/workflows/check.yml   # CI: the checks and strict validation of every plugin
+├── LICENSE                       # covers every plugin
 └── README.md
 ```
 
@@ -89,11 +91,15 @@ duplicates the source and drifts. One working tree is the source of truth.
 1. Branch: `feat/add-<name>-plugin`.
 2. Scaffold `plugins/<name>/` with `.claude-plugin/plugin.json`,
    `.cursor-plugin/plugin.json`, a `skills/` directory, and `README.md` — layout above.
-   Keep `name`, `version`, `description`, and `author` identical in both manifests.
+   Keep `name`, `version`, `description`, `author`, and `license` identical in both
+   manifests (`license` is `MIT`, as in [LICENSE](LICENSE)). Add a square PNG icon (512 to
+   2048 px) at `.claude-plugin/icon.png`, and open the README with the plugin's
+   `/plugin install` line. A plugin that connects to a remote MCP server also has a
+   `PRIVACY.md`, linked from its README and from `privacyPolicyUrl` in the Claude manifest.
 3. Add an entry to `.claude-plugin/marketplace.json` with `source` pointing at
    `./plugins/<name>`. A plugin on disk that is not listed there does not ship.
 4. Add a row to the root [README](README.md) Plugins table.
-5. `claude plugin validate --strict ./plugins/<name>` — zero warnings.
+5. `claude plugin validate --strict --profile directory ./plugins/<name>` — zero warnings.
 6. Install the new plugin from the local marketplace and exercise its skills.
 7. Commit (prefer `git-workflow` when available).
 8. Cut the first release: bump both manifests (typically `0.1.0`), add
@@ -106,7 +112,7 @@ duplicates the source and drifts. One working tree is the source of truth.
 1. Branch for the change.
 2. Edit under `plugins/<name>/`. With a local marketplace install, re-test after edits;
    refresh the install if the agent still sees old skill text.
-3. `claude plugin validate --strict ./plugins/<name>`.
+3. `claude plugin validate --strict --profile directory ./plugins/<name>`.
 4. Commit.
 5. When you want a **consumable** release (not necessarily every commit): bump semver in
    both manifests, cut the changelog, add optional `MIGRATION-<version>.md` if breaking,
@@ -206,12 +212,12 @@ Three checks, in order, before writing the first line:
 
 ## Verification tooling reference
 
-| Tool                                      | Checks                                                                           | Cost                                                              |
-| ----------------------------------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `claude plugin validate [--strict]`       | Manifest schema, required fields, paths                                          | Free, instant — run before every commit                           |
-| `claude plugin eval`                      | Behavior against realistic prompts and graders, compared to a no-plugin baseline | Real model calls — run at meaningful milestones, not every commit |
-| A skill's own eval loop (where available) | Fast iteration on one skill in isolation                                         | Cheaper, real model calls                                         |
-| `/skill-doctor` (or equivalent)           | Per-skill context cost and actual usage frequency                                | Free — run occasionally to prune unused skills                    |
+| Tool                                                  | Checks                                                                           | Cost                                                              |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `claude plugin validate --strict --profile directory` | Manifest schema, required fields, paths, license, icon, privacy policy           | Free, instant — run before every commit                           |
+| `claude plugin eval`                                  | Behavior against realistic prompts and graders, compared to a no-plugin baseline | Real model calls — run at meaningful milestones, not every commit |
+| A skill's own eval loop (where available)             | Fast iteration on one skill in isolation                                         | Cheaper, real model calls                                         |
+| `/skill-doctor` (or equivalent)                       | Per-skill context cost and actual usage frequency                                | Free — run occasionally to prune unused skills                    |
 
 None of these check house style on their own (frontmatter completeness, naming
 consistency across plugins, description quality). Where that matters, write a small,
@@ -223,8 +229,8 @@ registered in `marketplace.json` and the README, a CHANGELOG heading for the man
 version, valid relative links and `${CLAUDE_PLUGIN_ROOT}` paths in Markdown, and the
 one-bullet shape of each `DEFAULT_USAGE.md`. Run it with `node scripts/check.mjs`. The
 `check` workflow (`.github/workflows/check.yml`) runs it, then `claude plugin validate
---strict` on every plugin, on each pull request and each push to `main`. Add a new
-mechanical rule to the script, not to a review habit.
+--strict --profile directory` on every plugin, on each pull request and each push to
+`main`. Add a new mechanical rule to the script, not to a review habit.
 
 ## Distribution
 
@@ -233,11 +239,8 @@ mechanical rule to the script, not to a review habit.
   equivalent `claude plugin marketplace add tilap/pinkpuma-tilap`). A GitHub source works
   from any machine with git access to the repo; a local directory path only works on the
   machine it was added from.
-- This repository is private. Claude Code has no credentials of its own — it clones with
-  whatever `git` access the machine already has (an SSH key in `ssh-agent`, or a stored
-  HTTPS credential via `gh auth login` + `gh auth setup-git`). Anyone who needs access
-  must be added as a collaborator on the repository itself; there's no separate
-  permission layer on top of normal GitHub access.
+- This repository is public: installing from it needs no collaborator access. Claude Code
+  clones it with the machine's own `git`.
 - To scope plugins to one project instead of every project on a machine, install with
   `--scope project` and commit the `.claude/settings.json` it writes (see the root
   [README](README.md#install)). Project-local, personal overrides go in
